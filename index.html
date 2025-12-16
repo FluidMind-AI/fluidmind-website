@@ -177,6 +177,22 @@
             font-style: italic;
         }
 
+        .typewriter-text {
+            display: inline-block;
+            border-right: 3px solid var(--color-primary);
+            padding-right: 5px;
+            animation: blink 0.7s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: var(--color-primary);
+            }
+        }
+
         .hero-description {
             font-size: 1.2rem;
             color: var(--color-text-light);
@@ -833,7 +849,7 @@
                 <div class="hero-content">
                     <div class="hero-eyebrow">AI Product Studio</div>
                     <h1 class="hero-title">
-                        We build <em>AI products</em> that make everyday life simpler and smarter.
+                        <span class="typewriter-text" id="typewriter"></span>
                     </h1>
                     <p class="hero-description">
                         Fluid Mind is a focused team creating user-friendly AI tools that thoughtfully handle the details, so you can stay focused on what truly matters — learning, communicating, making decisions, enjoying your passions.
@@ -1005,6 +1021,48 @@
                 }
             }, 100);
         }
+
+        // Typewriter effect
+        const messages = [
+            "Turn what's said into something useful",
+            "Let Noto listen. You stay present",
+            "Ask your notes and meetings anything",
+            "Everything said, easy to find"
+        ];
+
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 80;
+
+        function typeWriter() {
+            const typewriterElement = document.getElementById('typewriter');
+            const currentMessage = messages[messageIndex];
+
+            if (!isDeleting && charIndex <= currentMessage.length) {
+                typewriterElement.textContent = currentMessage.substring(0, charIndex);
+                charIndex++;
+                typingSpeed = 80;
+            } else if (isDeleting && charIndex >= 0) {
+                typewriterElement.textContent = currentMessage.substring(0, charIndex);
+                charIndex--;
+                typingSpeed = 40;
+            }
+
+            if (charIndex === currentMessage.length + 1 && !isDeleting) {
+                isDeleting = true;
+                typingSpeed = 2000; // Pause at end
+            } else if (charIndex === 0 && isDeleting) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+                typingSpeed = 500; // Pause before next message
+            }
+
+            setTimeout(typeWriter, typingSpeed);
+        }
+
+        // Start typewriter effect
+        typeWriter();
 
         // Nav link clicks
         document.querySelectorAll('.nav-link').forEach(link => {
