@@ -183,7 +183,7 @@ body.menu-open {
     font-size: 1.85rem;
     font-weight: 400;
     color: var(--dim);
-    max-width: 520px;
+    white-space: nowrap;
     line-height: 1.45;
 }
 
