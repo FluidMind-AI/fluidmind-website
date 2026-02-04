@@ -3,1045 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluid Mind — AI-Driven Product Studio</title>
+    <title>Fluid Mind — Where AI Flows</title>
+    <meta name="description" content="An AI Lab building the future of intelligent systems.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-primary: #FEFEFE;
-            --bg-secondary: #F8FFFE;
-            --bg-card: #FFFFFF;
-            --color-primary: #0D9488;
-            --color-accent: #FF6B6B;
-            --color-accent-light: #FFB3BA;
-            --color-text: #1A1A1A;
-            --color-text-light: #666666;
-            --color-border: #E0E7E9;
-            --font-display: 'Crimson Pro', serif;
-            --font-body: 'DM Sans', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--color-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation - Top bar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 2rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom,
-                rgba(254, 254, 254, 0.98),
-                rgba(254, 254, 254, 0.85),
-                transparent);
-            backdrop-filter: blur(12px);
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--color-text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--color-primary);
-        }
-
-        /* Page visibility */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Hero Section - Split */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 4rem 4rem;
-        }
-
-        .hero-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            animation: fadeInLeft 1s ease backwards;
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-        }
-
-        .hero-eyebrow {
-            font-size: 0.9rem;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            width: 50px;
-            height: 2px;
-            background: var(--color-accent);
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.8rem, 5.5vw, 5rem);
-            font-weight: 600;
-            line-height: 1.15;
-            margin-bottom: 2rem;
-            color: var(--color-text);
-        }
-
-        .hero-title em {
-            color: var(--color-primary);
-            font-style: italic;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--color-text-light);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            font-weight: 400;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 4rem;
-            padding-top: 2rem;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-            font-weight: 500;
-        }
-
-        /* Hero Visual - Vibrant flowing shapes */
-        .hero-visual {
-            position: relative;
-            height: 600px;
-            animation: fadeInRight 1s ease 0.3s backwards;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-        }
-
-        .flowing-shape {
-            position: absolute;
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morphShape 10s ease-in-out infinite;
-        }
-
-        .flowing-shape-1 {
-            top: 8%;
-            left: 5%;
-            width: 320px;
-            height: 320px;
-            background: linear-gradient(135deg,
-                rgba(13, 148, 136, 0.2) 0%,
-                rgba(13, 148, 136, 0.08) 100%);
-            animation-delay: 0s;
-        }
-
-        .flowing-shape-2 {
-            bottom: 12%;
-            right: 8%;
-            width: 280px;
-            height: 280px;
-            background: linear-gradient(135deg,
-                rgba(255, 107, 107, 0.25) 0%,
-                rgba(255, 179, 186, 0.12) 100%);
-            animation-delay: 3s;
-        }
-
-        .flowing-shape-3 {
-            top: 45%;
-            right: 5%;
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg,
-                rgba(13, 148, 136, 0.15) 0%,
-                rgba(255, 107, 107, 0.15) 100%);
-            animation-delay: 6s;
-        }
-
-        @keyframes morphShape {
-            0%, 100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-                transform: rotate(0deg) scale(1);
-            }
-            25% {
-                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-                transform: rotate(90deg) scale(1.08);
-            }
-            50% {
-                border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
-                transform: rotate(180deg) scale(0.92);
-            }
-            75% {
-                border-radius: 70% 30% 50% 50% / 30% 70% 70% 30%;
-                transform: rotate(270deg) scale(1.05);
-            }
-        }
-
-        /* Who We Are Section */
-        .who-section {
-            max-width: 1400px;
-            margin: 8rem auto;
-            padding: 0 4rem;
-        }
-
-        .who-header {
-            text-align: center;
-            margin-bottom: 5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .who-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .who-label {
-            font-size: 0.85rem;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .who-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.8rem, 4.5vw, 4.5rem);
-            font-weight: 600;
-            line-height: 1.25;
-            margin-bottom: 2rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--color-text);
-        }
-
-        .who-intro {
-            font-size: 1.3rem;
-            color: var(--color-text-light);
-            line-height: 1.8;
-            max-width: 750px;
-            margin: 0 auto 5rem;
-            text-align: center;
-        }
-
-        /* Three value cards */
-        .values-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.2s;
-        }
-
-        .values-row.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .value-card {
-            background: var(--bg-card);
-            padding: 3rem 2.5rem;
-            border-radius: 12px;
-            border: 2px solid var(--color-border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--color-primary), var(--color-accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(13, 148, 136, 0.15);
-            border-color: var(--color-primary);
-        }
-
-        .value-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .value-number {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--color-accent);
-            opacity: 0.2;
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .value-title {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            color: var(--color-primary);
-        }
-
-        .value-text {
-            font-size: 1rem;
-            color: var(--color-text-light);
-            line-height: 1.8;
-        }
-
-        /* Pull quote */
-        .pull-quote {
-            max-width: 1000px;
-            margin: 6rem auto 0;
-            padding: 4rem 3rem;
-            background: linear-gradient(135deg,
-                rgba(13, 148, 136, 0.05) 0%,
-                rgba(255, 107, 107, 0.05) 100%);
-            border-radius: 16px;
-            border-left: 5px solid var(--color-primary);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.4s;
-            position: relative;
-        }
-
-        .pull-quote.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .pull-quote::before {
-            content: '"';
-            font-family: var(--font-display);
-            font-size: 12rem;
-            position: absolute;
-            top: -2rem;
-            right: 3rem;
-            color: var(--color-accent);
-            opacity: 0.08;
-            font-weight: 600;
-            line-height: 1;
-        }
-
-        .pull-quote-text {
-            font-family: var(--font-display);
-            font-size: 1.65rem;
-            line-height: 1.6;
-            color: var(--color-text);
-            font-weight: 400;
-            font-style: italic;
-            position: relative;
-        }
-
-        /* Projects Page */
-        .projects-page {
-            min-height: 100vh;
-            padding: 8rem 4rem 4rem;
-        }
-
-        .projects-container {
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .projects-header {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .projects-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .projects-label {
-            font-size: 0.85rem;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .projects-title {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 5.5vw, 5.5rem);
-            font-weight: 600;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            color: var(--color-text);
-        }
-
-        .projects-subtitle {
-            font-size: 1.25rem;
-            color: var(--color-text-light);
-            max-width: 650px;
-            line-height: 1.7;
-        }
-
-        /* Bento box grid */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-template-rows: repeat(4, 200px);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 2px solid var(--color-border);
-            border-radius: 16px;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .project-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg,
-                rgba(13, 148, 136, 0.05) 0%,
-                rgba(255, 107, 107, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 70px rgba(13, 148, 136, 0.2);
-            border-color: var(--color-primary);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Different sizes for bento layout */
-        .project-card:nth-child(1) {
-            grid-column: span 4;
-            grid-row: span 2;
-        }
-
-        .project-card:nth-child(2) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .project-card:nth-child(3) {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-
-        .project-card:nth-child(4) {
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-
-        .project-card-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-status {
-            display: inline-block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--color-primary);
-            background: rgba(13, 148, 136, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .project-status.coming-soon {
-            color: var(--color-accent);
-            background: rgba(255, 107, 107, 0.1);
-        }
-
-        .project-name {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: var(--color-text);
-        }
-
-        .project-card:nth-child(1) .project-name {
-            font-size: 2.8rem;
-        }
-
-        .project-description {
-            font-size: 1.05rem;
-            color: var(--color-text-light);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--color-accent);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: gap 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-link::after {
-            content: '→';
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-link {
-            gap: 1.2rem;
-        }
-
-        .download-btn {
-            display: inline-block;
-            color: white;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.9rem 2rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.25);
-            position: relative;
-            z-index: 1;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 6rem 4rem 4rem;
-            text-align: center;
-            border-top: 2px solid var(--color-border);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-title {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-
-        .footer-text {
-            color: var(--color-text-light);
-            margin-bottom: 2.5rem;
-            font-size: 1.05rem;
-        }
-
-        .footer-email {
-            display: inline-block;
-            color: white;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
-        }
-
-        .footer-email:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
-            .hero-section,
-            .projects-page {
-                padding: 6rem 2rem 4rem;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .hero-visual {
-                height: 450px;
-            }
-
-            .who-section {
-                padding: 0 2rem;
-            }
-
-            .values-row {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .bento-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-            }
-
-            .project-card {
-                grid-column: span 1 !important;
-                grid-row: span 1 !important;
-                min-height: 320px;
-            }
-
-            .project-card:nth-child(1) .project-name {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            nav {
-                padding: 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .hero-section,
-            .projects-page {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            .hero-eyebrow {
-                font-size: 0.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-eyebrow::before {
-                width: 30px;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .hero-visual {
-                height: 250px;
-                position: absolute;
-                top: 0;
-                right: 0;
-                left: 0;
-                opacity: 0.4;
-                z-index: -1;
-            }
-
-            .flowing-shape-1 {
-                width: 200px;
-                height: 200px;
-                top: -50px;
-                left: -30px;
-            }
-
-            .flowing-shape-2 {
-                width: 180px;
-                height: 180px;
-                top: 20px;
-                right: -40px;
-            }
-
-            .flowing-shape-3 {
-                width: 150px;
-                height: 150px;
-                top: 80px;
-                right: 40%;
-            }
-
-            .who-section {
-                padding: 0 1.5rem;
-            }
-
-            footer {
-                padding: 4rem 1.5rem 3rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="png/f teal.png">
 </head>
 <body>
-    <nav>
-        <div class="logo" onclick="switchPage('home')">Fluid Mind</div>
-        <ul class="nav-links">
-            <li><a class="nav-link active" data-page="home">Home</a></li>
-            <li><a class="nav-link" data-page="projects">Projects</a></li>
-        </ul>
+    <canvas id="lava"></canvas>
+
+    <nav class="nav">
+        <a href="#" class="nav-logo" aria-label="Fluid Mind">
+            <img src="png/logo dark.png" alt="Fluid Mind">
+        </a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#expertise">Expertise</a>
+            <a href="#about">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page active">
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-eyebrow">AI Product Studio</div>
-                    <h1 class="hero-title">
-                        We build <em>AI products</em> that make everyday life simpler and smarter.
-                    </h1>
-                    <p class="hero-description">
-                        Fluid Mind is a focused team creating user-friendly AI tools that thoughtfully handle the details, so you can stay focused on what truly matters — learning, communicating, making decisions, enjoying your passions.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">Products</div>
+    <main class="page">
+        <!-- Hero -->
+        <header class="hero section" id="top">
+            <h1>We build minds<br>that <em>flow</em></h1>
+            <p class="hero-sub">AI systems that think, adapt, and deliver.</p>
+        </header>
+
+        <!-- Capabilities -->
+        <section class="capabilities section" id="expertise" aria-label="Capabilities">
+            <h2 class="capabilities-heading">Our Expertise</h2>
+            <p class="capabilities-subheading">The building blocks of our intelligent products.</p>
+            <div class="carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" aria-label="Previous">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel">
+                <div class="carousel-track">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Intelligent Workflows</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Multi-step pipelines orchestrating LLMs, APIs, and data sources into seamless automated processes.</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">User-Focused</div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Autonomous Agents</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>AI that acts on your behalf — researching, organizing, executing tasks with minimal oversight.</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Possibilities</div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Knowledge Systems</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Beyond basic RAG — graph structures, multi-hop reasoning, and context-aware synthesis across complex data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Document Intelligence</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Generate, analyze, and transform documents at scale. From contracts to reports to any format you need.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Voice & Local AI</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>On-device processing, voice interfaces, privacy-first solutions that run without the cloud.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>UX-First Design</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>AI is only as good as its interface. We craft experiences that make complex technology feel effortless.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>Computer Vision</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Image recognition, visual analysis, document parsing. AI that sees and understands.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <h3>AI Memory</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <p>Persistent context, learning systems, long-term recall. Intelligence that remembers.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                </div>
+                <button class="carousel-arrow carousel-arrow-right" aria-label="Next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
 
-                <div class="hero-visual">
-                    <div class="flowing-shape flowing-shape-1"></div>
-                    <div class="flowing-shape flowing-shape-2"></div>
-                    <div class="flowing-shape flowing-shape-3"></div>
+        <!-- Who We Are -->
+        <section class="who-we-are section" id="about">
+            <div class="who-content">
+                <div class="who-left">
+                    <h2>Who We Are</h2>
+                    <p class="who-tagline">A tiny team.<br>An army of agents.</p>
+                </div>
+                <div class="who-right">
+                    <p class="who-desc">We're an AI lab where humans and agents work side by side. Product, creative, and data science expertise amplified by intelligent systems that let us punch way above our weight.</p>
+                    <div class="who-traits">
+                        <span>User-first design</span>
+                        <span>AI-native workflows</span>
+                        <span>Small team, big output</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="who-section">
-            <div class="who-header" id="who-header">
-                <div class="who-label">Who We Are</div>
-                <h2 class="who-title">A small team building tools that feel like magic</h2>
-                <p class="who-intro">
-                    We're a focused product studio creating AI-driven tools for everyday life and work. Our products help people stay in flow.
-                </p>
-            </div>
-
-            <div class="values-row" id="values-row">
-                <div class="value-card">
-                    <div class="value-number">01</div>
-                    <h3 class="value-title">Focused</h3>
-                    <p class="value-text">
-                        We're a small, intentional team. No bloat, no distractions. Just thoughtful products that solve real problems.
-                    </p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-number">02</div>
-                    <h3 class="value-title">Intelligent</h3>
-                    <p class="value-text">
-                        AI should work quietly in the background, handling complexity so users can focus on what matters most.
-                    </p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-number">03</div>
-                    <h3 class="value-title">User-First</h3>
-                    <p class="value-text">
-                        Every feature, every interaction is designed around the people who use our products every day.
-                    </p>
-                </div>
-            </div>
-
-            <div class="pull-quote" id="pull-quote">
-                <p class="pull-quote-text">
-                    "The future of AI isn't smarter models. It's better experiences."
-                </p>
+        <!-- Manifesto -->
+        <section class="manifesto section">
+            <div class="manifesto-content">
+                <p>The future of AI isn't smarter models.</p>
+                <p class="highlight">It's better experiences.</p>
+                <a href="projects.html" class="manifesto-link">
+                    See what we've built
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </section>
-    </div>
 
-    <!-- PROJECTS PAGE -->
-    <div id="projects" class="page">
-        <div class="projects-page">
-            <div class="projects-container">
-                <div class="projects-header" id="projects-header">
-                    <div class="projects-label">Our Work</div>
-                    <h1 class="projects-title">Our Projects</h1>
-                    <p class="projects-subtitle">
-                        Smart tools designed to help you work better, learn faster, and enjoy more.
-                    </p>
-                </div>
+        <!-- Contact -->
+        <section class="contact section" id="contact">
+            <h2>Let's connect</h2>
+            <a href="mailto:hello@fluidmind.ai" class="contact-link">hello@fluidmind.ai</a>
+        </section>
+    </main>
 
-                <div class="bento-grid">
-                    <div class="project-card" data-project="notonote">
-                        <div class="project-card-content">
-                            <span class="project-status">Beta</span>
-                            <h3 class="project-name">NotoNote</h3>
-                            <p class="project-description">
-                                A note-taking sidekick that understands your meetings and helps you follow through. Available now in beta.
-                            </p>
-                        </div>
-                        <a href="#" class="download-btn">Download Beta</a>
-                    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="png/f dark.png" alt="F">
+        <span>&copy; <span id="year"></span> Fluid Mind</span>
+    </footer>
 
-                    <div class="project-card" data-project="lawyernet">
-                        <div class="project-card-content">
-                            <span class="project-status">User Testing</span>
-                            <h3 class="project-name">LawyerNet</h3>
-                            <p class="project-description">
-                                Smarter legal recruiting through natural-language search and structured insights.
-                            </p>
-                        </div>
-                        <span class="project-link">Learn More</span>
-                    </div>
+    <!-- GSAP for scroll animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-                    <div class="project-card" data-project="winepro">
-                        <div class="project-card-content">
-                            <span class="project-status">Testing</span>
-                            <h3 class="project-name">WinePro</h3>
-                            <p class="project-description">
-                                Your pocket sommelier: wine discovery, learning, and pairing made effortless.
-                            </p>
-                        </div>
-                        <span class="project-link">Learn More</span>
-                    </div>
-
-                    <div class="project-card" data-project="whiskypro">
-                        <div class="project-card-content">
-                            <span class="project-status coming-soon">Coming Soon</span>
-                            <h3 class="project-name">WhiskyPro</h3>
-                            <p class="project-description">
-                                A new way to explore, learn, and enjoy whisky.
-                            </p>
-                        </div>
-                        <span class="project-link">Coming Soon</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <div class="footer-content">
-                <h3 class="footer-title">Let's talk</h3>
-                <p class="footer-text">Have a project in mind? Want to learn more about what we do?</p>
-                <a href="mailto:hello@fluidmind.ai" class="footer-email">hello@fluidmind.ai</a>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        // Page switching
-        function switchPage(pageName) {
-            const pages = document.querySelectorAll('.page');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            pages.forEach(page => page.classList.remove('active'));
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            document.getElementById(pageName).classList.add('active');
-            const activeLink = document.querySelector(`[data-page="${pageName}"]`);
-            if (activeLink) activeLink.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Trigger animations
-            setTimeout(() => {
-                if (pageName === 'projects') {
-                    const header = document.getElementById('projects-header');
-                    const cards = document.querySelectorAll('.project-card');
-
-                    header.classList.add('visible');
-
-                    cards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('visible');
-                        }, 100 * index);
-                    });
-                }
-            }, 100);
-        }
-
-        // Nav link clicks
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const pageName = link.getAttribute('data-page');
-                switchPage(pageName);
-            });
-        });
-
-        // Intersection Observer for scroll animations on home page
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -80px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        const animatedElements = document.querySelectorAll(
-            '.who-header, .values-row, .pull-quote'
-        );
-        animatedElements.forEach(el => observer.observe(el));
-
-        // Project card interactions
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const project = card.getAttribute('data-project');
-                console.log(`Clicked on ${project}`);
-                alert(`${project} details coming soon!`);
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

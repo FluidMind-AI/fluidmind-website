@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Fluid Mind</title>
+    <meta name="description" content="AI products built by Fluid Mind.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="png/f teal.png">
+</head>
+<body>
+    <canvas id="lava"></canvas>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo" aria-label="Fluid Mind">
+            <img src="png/logo dark.png" alt="Fluid Mind">
+        </a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html#expertise">Expertise</a>
+            <a href="index.html#about">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <!-- Projects Header -->
+        <header class="projects-header">
+            <h1>Our Projects</h1>
+            <p>AI products that solve real problems.</p>
+        </header>
+
+        <!-- Projects Bento Grid -->
+        <section class="projects-bento">
+            <!-- Featured: NotoNote -->
+            <article class="project-card project-featured">
+                <div class="project-badge">Available Now</div>
+                <h2>NotoNote</h2>
+                <p class="project-tagline">Never miss what matters.</p>
+                <p>AI notes and dictation, built to turn messy thoughts and meetings into clean, usable outputs.</p>
+                <a href="https://notonote.ai/" target="_blank" rel="noopener" class="project-link">
+                    <span>Learn More</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- LawyerNet -->
+            <article class="project-card project-medium">
+                <h2>LawyerNet</h2>
+                <p>AI-powered search and workflow for legal recruiting — find the right lawyers fast, then run outreach and tracking in one place.</p>
+                <span class="project-status">Private · Available Soon</span>
+            </article>
+
+            <!-- WinePro -->
+            <article class="project-card project-small">
+                <h2>WinePro</h2>
+                <p>Your pocket sommelier. Scan any wine list or label, ask anything, and get smart recommendations.</p>
+                <a href="https://www.winepro.ai/" target="_blank" rel="noopener" class="project-link-small">Learn More</a>
+            </article>
+
+            <!-- WhiskyPro -->
+            <article class="project-card project-small">
+                <h2>WhiskyPro</h2>
+                <p>Discover and compare whiskies with tasting insights and recommendations.</p>
+                <span class="project-status">Coming Soon</span>
+            </article>
+
+            <!-- Climate Rapid Response -->
+            <article class="project-card project-medium">
+                <h2>Climate Rapid Response</h2>
+                <p>Rapid intake, research, and memo drafting — produce decision-ready climate briefs quickly.</p>
+                <span class="project-status disabled">Private</span>
+            </article>
+
+            <!-- Mooncheck -->
+            <article class="project-card project-small">
+                <h2>Mooncheck</h2>
+                <p>AI-driven crypto compliance — reviews docs against regulatory requirements and flags gaps.</p>
+                <a href="https://www.mooncheck.com/landing" target="_blank" rel="noopener" class="project-link-small">Learn More</a>
+            </article>
+        </section>
+
+        <!-- Back CTA -->
+        <section class="back-cta">
+            <a href="index.html" class="back-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Back to home</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="png/f dark.png" alt="F">
+        <span>&copy; <span id="year"></span> Fluid Mind</span>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
