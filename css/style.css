@@ -170,13 +170,12 @@ body.menu-open {
 .hero h1 em {
     font-style: italic;
     font-weight: 300;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(135deg, #0099aa 0%, #007088 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     padding-right: 0.1em;
     display: inline-block;
-    filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.4));
 }
 
 .hero-sub {
