@@ -174,7 +174,7 @@ body.menu-open {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    padding-right: 0.1em;
+    padding-right: 0.15em;
     display: inline-block;
 }
 
