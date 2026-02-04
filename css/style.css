@@ -651,22 +651,21 @@ body.menu-open {
     }
 
     .carousel-container {
-        padding: 0 0.5rem;
-        gap: 0.5rem;
+        padding: 0;
+        gap: 0;
     }
 
     .carousel-arrow {
-        width: 36px;
-        height: 36px;
+        display: none;
     }
 
-    .carousel-arrow svg {
-        width: 18px;
-        height: 18px;
+    .carousel {
+        padding: 0 1rem;
     }
 
     .carousel-track {
         gap: 1rem;
+        padding-right: 4rem;
     }
 
     .flip-card {
