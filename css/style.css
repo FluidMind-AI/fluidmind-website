@@ -180,10 +180,10 @@ body.menu-open {
 
 .hero-sub {
     margin-top: 3rem;
-    font-size: 1.35rem;
+    font-size: 1.6rem;
     font-weight: 400;
     color: var(--dim);
-    max-width: 420px;
+    max-width: 480px;
     line-height: 1.5;
 }
 
