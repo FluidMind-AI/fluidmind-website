@@ -1,0 +1,33 @@
+# Fluid Mind
+
+> An AI lab designing autonomous agents, intelligent workflows, and knowledge systems. A small team amplified by AI, building products that think, adapt, and deliver.
+
+Fluid Mind is an AI lab where humans and agents work side by side. Product, creative, and data-science expertise are amplified by intelligent systems, letting a tiny team ship at the scale of a much larger one.
+
+Contact: hello@fluidmind.ai
+Site: https://fluidmind.ai/
+
+## Expertise
+
+- Intelligent Workflows — multi-step pipelines orchestrating LLMs, APIs, and data sources into seamless automated processes.
+- Autonomous Agents — AI that acts on your behalf: researching, organizing, and executing tasks with minimal oversight.
+- Knowledge Systems — beyond basic RAG: graph structures, multi-hop reasoning, and context-aware synthesis across complex data.
+- Document Intelligence — generate, analyze, and transform documents at scale, from contracts to reports.
+- Voice & Local AI — on-device processing, voice interfaces, and privacy-first solutions that run without the cloud.
+- UX-First Design — interfaces that make complex AI feel effortless.
+- Computer Vision — image recognition, visual analysis, and document parsing.
+- AI Memory — persistent context, learning systems, and long-term recall.
+
+## Projects
+
+- [NotoNote](https://notonote.ai/): AI notes and dictation that turn messy thoughts and meetings into clean, usable outputs. Available now.
+- LawyerNet: AI-powered search and workflow for legal recruiting — find the right lawyers fast, then run outreach and tracking in one place. Private, available soon.
+- [WinePro](https://www.winepro.ai/): Pocket sommelier. Scan any wine list or label, ask anything, and get smart recommendations.
+- WhiskyPro: Discover and compare whiskies with tasting insights and recommendations. Coming soon.
+- Climate Rapid Response: Rapid intake, research, and memo drafting — produces decision-ready climate briefs quickly. Private.
+- [Mooncheck](https://www.mooncheck.com/landing): AI-driven crypto compliance — reviews documents against regulatory requirements and flags gaps.
+
+## Pages
+
+- [Home](https://fluidmind.ai/): Overview of Fluid Mind, expertise areas, and how the lab works.
+- [Projects](https://fluidmind.ai/projects.html): Full list of products built by Fluid Mind.
