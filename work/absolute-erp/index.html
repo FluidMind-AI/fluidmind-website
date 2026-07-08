@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Dealership ERP — Case Study — FluidMind</title>
+<meta name="description" content="Case study: an agent-first ERP for Absolute Racing Japan. Sales and operations teams run the whole dealership by talking to Senna — a context-aware agent that answers on an interactive canvas and proposes writes for approval.">
+<meta property="og:title" content="AI Dealership ERP — Case Study — FluidMind">
+<meta property="og:description" content="Run the whole dealership by talking to Senna. An agent-first ERP for Absolute Racing Japan.">
+<meta property="og:url" content="https://fluidmind.ai/work/absolute-erp/">
+<link rel="icon" type="image/png" href="/png/f%20teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#05080f; color:#eaf3fb; font-family:'Outfit',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#c6e24a; color:#1a1a12; }
+  a { color:#22d3ee; text-decoration:none; }
+  a:hover { color:#67e8f9; }
+  .sig { font-family:'Bricolage Grotesque','Outfit',sans-serif; }
+  .plex { font-family:'IBM Plex Sans',sans-serif; }
+  .tt { font-family:'IBM Plex Mono',ui-monospace,monospace; }
+  .news { font-family:'Newsreader',Georgia,serif; }
+  @keyframes fm-rise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @keyframes fm-pulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
+  @keyframes fm-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(7px); } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+
+  <!-- NAV -->
+  <nav id="nav" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw; transition:background 0.4s, padding 0.4s;">
+    <a href="/" style="display:flex; align-items:center; gap:10px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:16px; opacity:0.9;"></a>
+    <a class="sig" href="/products/" style="font-size:14px; font-weight:500; color:rgba(230,244,255,0.66);">← All products</a>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; padding:clamp(120px,20vh,220px) 5vw clamp(60px,9vh,110px); overflow:hidden; background:radial-gradient(120% 90% at 78% 8%, #23241c 0%, #0a0d0a 46%, #05080f 100%);">
+    <canvas id="cvField" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.4;"></canvas>
+    <div style="position:relative; z-index:2; max-width:1240px; margin:0 auto;">
+      <div data-reveal style="display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:30px;">
+        <img src="/png/absolute.png" alt="Absolute Auto Club" style="height:34px; width:auto; opacity:0.95;">
+        <span class="pill-priv sig">Live · Private deployment</span>
+      </div>
+      <div data-reveal class="eyebrow" style="color:#c6e24a;">Case study — Absolute Racing Japan</div>
+      <h1 data-reveal style="font-size:clamp(2.6rem,6.4vw,5.4rem); font-weight:600; line-height:0.98; letter-spacing:-0.035em; max-width:15ch;">Run the whole dealership by talking to <span class="news" style="font-style:italic; font-weight:500; color:#c6e24a;">Senna</span>.</h1>
+      <p data-reveal style="margin-top:30px; font-size:clamp(1.15rem,1.8vw,1.5rem); line-height:1.55; color:rgba(224,232,214,0.72); max-width:62ch;">An agent-first ERP for a Japanese performance-car dealership. Sales and operations teams run the whole business — inventory, auctions, reconditioning, reservations, sales and exports — by asking one context-aware agent. Senna answers on an interactive dark canvas, knows what you&#39;re looking at, and proposes the writes so people approve instead of type.</p>
+      <div data-reveal style="display:flex; gap:clamp(24px,4vw,56px); margin-top:48px; flex-wrap:wrap;">
+        <div><div class="statv">1</div><div class="statl">agent, one canvas</div></div>
+        <div><div class="statv">Any</div><div class="statl">question, structured answer</div></div>
+        <div><div class="statv">Auto</div><div class="statl">pricing &amp; auction tracking</div></div>
+        <div><div class="statv">100%</div><div class="statl">writes approved &amp; logged</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SENNA WORKSPACE MOCK -->
+  <section style="position:relative; padding:0 5vw clamp(70px,10vh,120px); background:#05080f;">
+    <div data-reveal style="max-width:1240px; margin:0 auto;">
+      <div class="senna-shell">
+        <!-- chat rail -->
+        <div class="senna-rail">
+          <div class="rail-top plex"><span class="news" style="font-size:19px; font-weight:500; color:#2b291f;">Senna</span> <span style="font-size:12.5px; color:#8a856b;">Operations agent</span></div>
+          <div class="rail-body">
+            <div class="c-msg user plex">Which cars are aging past their category threshold, and what should we do?</div>
+            <div class="c-msg agent plex"><span class="tt c-s">S</span><div>Found <b>17 units over threshold</b>, ¥86.4M tied up. I drafted 4 price updates on the oldest stock — open the report to review.<div class="c-chip tt">▤ Aging Inventory</div></div></div>
+            <div class="c-msg user plex">Extend the holds expiring this week too.</div>
+          </div>
+          <div class="rail-composer plex"><span style="color:#a8a49a;">Ask Senna…</span><span class="scope tt">Scope: ARJ · Yokohama</span></div>
+        </div>
+        <!-- canvas -->
+        <div class="senna-canvas">
+          <div class="canvas-toolbar">
+            <img src="/png/absolute-mark.png" alt="Absolute" style="height:22px; width:22px; margin-right:2px;">
+            <span class="tt cb-root">Report</span><span class="cb-sep">/</span><span class="plex cb-page">Aging Inventory</span>
+            <span style="flex:1"></span>
+            <span class="btn-lime plex">Save to Reports</span><span class="btn-ghost plex">Export</span><span class="btn-ghost plex">Pin</span>
+          </div>
+          <div class="canvas-well">
+            <div class="sheet">
+              <div class="tt sheet-eyebrow">Generated 10:04 AM · Jul 2 · thresholds applied per category</div>
+              <div class="news sheet-title">Aging Inventory — Over Threshold</div>
+              <div class="chips">
+                <span class="tt chip-o">dealer_supply · 60d</span><span class="tt chip-o">jdm_performance · 120d</span><span class="tt chip-o">european_luxury · 120d</span><span class="tt chip-o">classics · 240d</span>
+              </div>
+              <div class="stats">
+                <div class="tile warn"><div class="tile-v">17</div><div class="tile-l">Over threshold</div></div>
+                <div class="tile"><div class="tile-v">¥86.4M</div><div class="tile-l">Capital in aged stock</div></div>
+                <div class="tile"><div class="tile-v" style="color:oklch(0.53 0.2 27);">251 d</div><div class="tile-l">Oldest unit</div></div>
+              </div>
+              <div class="thead tt"><span style="flex:1">Vehicle</span><span style="width:110px">Category</span><span style="width:78px; text-align:right">Days/thr</span><span style="width:96px; text-align:right">List</span><span style="width:132px; text-align:right">Suggested</span></div>
+              <div class="trow"><span style="flex:1" class="plex">R33 GT-R V-Spec <span class="tt rid">BCNR33-006</span></span><span class="tt tcat">jdm_perf</span><span class="tt" style="width:78px; text-align:right; color:oklch(0.53 0.2 27); font-weight:600;">251/120</span><span class="tt" style="width:96px; text-align:right">¥9.8M</span><span class="tt tsug" style="width:132px; text-align:right">→ ¥8.9M</span></div>
+              <div class="trow"><span style="flex:1" class="plex">Mercedes 500E <span class="tt rid">W124-338</span></span><span class="tt tcat">euro_luxury</span><span class="tt" style="width:78px; text-align:right; color:oklch(0.62 0.13 60); font-weight:600;">168/120</span><span class="tt" style="width:96px; text-align:right">¥6.2M</span><span class="tt tsug" style="width:132px; text-align:right">→ ¥5.6M</span></div>
+              <div class="trow"><span style="flex:1" class="plex">Supra RZ <span class="tt rid">JZA80-411</span></span><span class="tt tcat">jdm_perf</span><span class="tt" style="width:78px; text-align:right; color:oklch(0.62 0.13 60); font-weight:600;">142/120</span><span class="tt" style="width:96px; text-align:right">¥9.2M</span><span class="plex" style="width:132px; text-align:right; color:oklch(0.55 0.01 60); font-size:11px;">hold — review</span></div>
+              <div class="suggest">
+                <span class="sug-ico"></span>
+                <div style="flex:1"><div class="plex sug-t">Suggested — 4 price updates on aged stock</div><div class="plex sug-s">Writes sale_price_jpy on approval · logged to activity with agent identity</div></div>
+                <span class="btn-review plex">Review each</span><span class="btn-apply plex">Apply 4</span>
+              </div>
+              <div class="tt sheet-foot">17 items · 3 shown — scroll ↓ · price columns render for admin &amp; accounting only</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tt" style="text-align:center; margin-top:16px; font-size:12px; color:rgba(200,222,246,0.4);">Senna workspace — 400px light chat rail · dark canvas · the same four-zone report grammar every time</div>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:linear-gradient(180deg,#05080f,#070e1c);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">The challenge</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:20ch; line-height:1.04;">A performance-car dealership is a dozen systems in a trench coat.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:52px;">
+        <div data-reveal class="ccard"><h3>Sprawling operations</h3><p>Auction bidding, imports and pickup, reconditioning, reservations, leasing, exports and competitor pricing — each with its own state, deadlines and money at risk.</p></div>
+        <div data-reveal class="ccard"><h3>Answers buried in data</h3><p>"What's aging?" "What keeps selling?" "What's blocking the close?" meant cross-referencing spreadsheets no one had time to build.</p></div>
+        <div data-reveal class="ccard"><h3>Every write is high-stakes</h3><p>Price changes, offers and hold extensions move real yen. Staff needed speed without losing the paper trail of who changed what.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:#070e1c;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">The approach</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:22ch; line-height:1.04;">Make the agent the primary surface. Screens are the fallback.</h2>
+      <p data-reveal style="margin-top:26px; font-size:clamp(1.05rem,1.6vw,1.3rem); line-height:1.6; color:rgba(214,232,248,0.66); max-width:64ch;">Instead of teaching staff eleven modules, we gave them one operations agent. Senna reads the whole ERP, renders answers in a strict visual grammar, and turns intent into reviewable writes.</p>
+
+      <!-- grammar diagram -->
+      <div data-reveal style="margin-top:56px;">
+        <div class="statl" style="margin-bottom:18px;">Every answer renders in the same four zones</div>
+        <div class="grammar">
+          <div class="gz"><span class="tt gz-k">HEADER</span><span class="gz-d">title · scope · params</span></div>
+          <span class="gz-arrow">→</span>
+          <div class="gz"><span class="tt gz-k">STATS</span><span class="gz-d">2–4 KPI tiles</span></div>
+          <span class="gz-arrow">→</span>
+          <div class="gz"><span class="tt gz-k">BODY</span><span class="gz-d">table · ranked · pipeline · forecast · matches</span></div>
+          <span class="gz-arrow">→</span>
+          <div class="gz gz-act"><span class="tt gz-k">ACTIONS</span><span class="gz-d">approve-to-write</span></div>
+        </div>
+      </div>
+
+      <!-- write flow -->
+      <div data-reveal style="margin-top:44px;">
+        <div class="statl" style="margin-bottom:18px;">How a write happens</div>
+        <div class="flow">
+          <div class="fstep"><span class="fn tt">1</span><b>Ask</b><p>Staff ask in plain language. Senna runs the matching report template.</p></div>
+          <div class="fstep"><span class="fn tt">2</span><b>Propose</b><p>The canvas shows a Suggested card — e.g. "4 price updates on aged stock".</p></div>
+          <div class="fstep"><span class="fn tt">3</span><b>Review</b><p>A drawer lists each mutation. The user selects which to approve.</p></div>
+          <div class="fstep"><span class="fn tt">4</span><b>Commit</b><p>Writes run under Senna's agent identity, land in the activity log, and the canvas re-runs against post-write reality.</p></div>
+        </div>
+      </div>
+
+      <div data-reveal class="guard">
+        <span class="tt" style="color:#c6e24a; font-size:12px; letter-spacing:0.14em;">SAFETY BY DESIGN</span>
+        <p>Nothing writes without approval. Prices and margins never reach employees' screens — the API strips them, so the columns simply don't render. And when the server is uncertain a write landed, Senna surfaces the ambiguity rather than silently retrying and double-charging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANVAS CONCEPT -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:linear-gradient(180deg,#05080f,#070e1c);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">The big idea</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:20ch; line-height:1.04;">A living canvas that can report on anything in the business.</h2>
+      <p data-reveal style="margin-top:26px; font-size:clamp(1.05rem,1.6vw,1.3rem); line-height:1.6; color:rgba(214,232,248,0.66); max-width:66ch;">Ask about aging stock, a single buyer, this quarter&#39;s forecast or one car&#39;s history — Senna composes a rich, interactive report on the fly and paints it on the canvas. Not fixed dashboards: structured, drillable answers to whatever&#39;s happening right now, each one pinnable and exportable.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:48px;">
+        <div data-reveal class="ccard"><h3>Structured, not chatty</h3><p>Every answer is a real report — KPI tiles, sortable tables, pipelines, forecasts — rendered in one consistent grammar, never a wall of text.</p></div>
+        <div data-reveal class="ccard"><h3>Interactive &amp; drillable</h3><p>Expand groups, sort columns, open a vehicle, follow a thread. The canvas is a workspace, not a printout.</p></div>
+        <div data-reveal class="ccard"><h3>Report on anything</h3><p>If the ERP knows it, Senna can surface it — across inventory, sales, recon, auctions, reservations and exports.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXT AWARE -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:#070e1c;">
+    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,5vw,72px); align-items:center;" class="ctxgrid">
+      <div>
+        <div data-reveal class="eyebrow">Context-aware</div>
+        <h2 data-reveal style="font-size:clamp(1.9rem,3.8vw,2.9rem); font-weight:600; letter-spacing:-0.025em; line-height:1.06;">It knows what you&#39;re looking at.</h2>
+        <p data-reveal style="margin-top:22px; font-size:clamp(1.02rem,1.5vw,1.2rem); line-height:1.65; color:rgba(214,232,248,0.66); max-width:52ch;">Open a vehicle and just ask “tell me about this car.” Senna reads the screen you&#39;re on — the record, the filters, the report in view — and answers with that in mind. No re-typing VINs, no restating context. Perfect for a salesperson mid-conversation on the lot.</p>
+        <div data-reveal style="display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;">
+          <span class="mchip">Screen-aware</span><span class="mchip">On the fly</span><span class="mchip">For sales &amp; ops</span>
+        </div>
+      </div>
+      <div data-reveal class="ctxmock">
+        <div class="ctx-view tt">▤ Viewing · R34 GT-R V-Spec II <span style="color:oklch(0.55 0.01 60)">· BNR34-118</span></div>
+        <div class="ctx-chat">
+          <div class="ctx-u plex">tell me about this car</div>
+          <div class="ctx-a plex"><span class="tt ctx-s">S</span><div><b>R34 GT-R V-Spec II</b> · 2002 · 33,400 km. In stock 47 days (jdm_performance, thr 120). Recon complete. One reservation hold, expires Fri. Landed ¥12.1M · listed ¥18.9M.<div class="ctx-row"><span>margin</span><span class="tt" style="color:oklch(0.5 0.13 152)">healthy</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATIONS -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:linear-gradient(180deg,#070e1c,#05080f);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">Automations</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:22ch; line-height:1.04;">Senna watches the yard so the team doesn&#39;t have to.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:52px;">
+        <div data-reveal class="tcard"><h4>Suggested pricing</h4><p>Watches age against category thresholds and market comps, then drafts price adjustments for one-tap approval.</p></div>
+        <div data-reveal class="tcard"><h4>Auction tracking</h4><p>Follows bids, wins and pickup deadlines — flags storage fees accruing and cars awaiting collection.</p></div>
+        <div data-reveal class="tcard"><h4>Aging alerts</h4><p>Surfaces capital tied up in stock that&#39;s sitting too long, before it quietly erodes margin.</p></div>
+        <div data-reveal class="tcard"><h4>Restock signals</h4><p>Spots models that keep selling and are running low, ranked by a stock-gap score.</p></div>
+        <div data-reveal class="tcard"><h4>Reservation nudges</h4><p>Tracks accepted offers and what&#39;s blocking each close — expiring holds, missing paperwork, deposits.</p></div>
+        <div data-reveal class="tcard"><h4>Competitor watch</h4><p>Keeps an eye on comparable listings so pricing stays sharp against the market.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT SENNA ANSWERS -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:linear-gradient(180deg,#070e1c,#05080f);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">Report library</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:24ch; line-height:1.04;">Ready-made reports — or ask for something new.</h2>
+      <p data-reveal style="margin-top:22px; margin-bottom:8px; font-size:clamp(1.02rem,1.5vw,1.18rem); line-height:1.6; color:rgba(214,232,248,0.6); max-width:60ch;">A growing library of one-word reports the team leans on daily. Each is just a starting point — Senna reshapes any of them, or composes a fresh one, on request.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:52px;">
+        <div data-reveal class="tcard"><h4>Inventory Snapshot</h4><p>Stock by model and age, grouped and collapsible.</p></div>
+        <div data-reveal class="tcard"><h4>Aging Inventory</h4><p>Units over category thresholds, with suggested price cuts.</p></div>
+        <div data-reveal class="tcard"><h4>Restock Candidates</h4><p>Sold well, running low — ranked by stock-gap score.</p></div>
+        <div data-reveal class="tcard"><h4>Recon Pipeline</h4><p>Work orders by stage, blockers flagged inline.</p></div>
+        <div data-reveal class="tcard"><h4>Awaiting Pickup</h4><p>Auction wins by priority, storage fees accruing.</p></div>
+        <div data-reveal class="tcard"><h4>Reservations Blockers</h4><p>Accepted offers by what's blocking the close.</p></div>
+        <div data-reveal class="tcard"><h4>Sales Forecast</h4><p>Pipeline-adjusted Q-forecast with p10–p90 bands.</p></div>
+        <div data-reveal class="tcard"><h4>Requests × Stock</h4><p>Open client requests matched against current stock.</p></div>
+        <div data-reveal class="tcard"><h4>Order Candidates</h4><p>What keeps selling — velocity × margin, pinnable.</p></div>
+        <div data-reveal class="tcard"><h4>Stock Match</h4><p>One buyer's criteria scored across the yard.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES + STACK -->
+  <section style="padding:clamp(70px,10vh,130px) 5vw; background:#05080f;">
+    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(40px,6vw,80px);" class="msgrid">
+      <div>
+        <div data-reveal class="eyebrow">Under the hood</div>
+        <h2 data-reveal style="font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:600; letter-spacing:-0.02em; line-height:1.1;">Manual screens for every module — always one tab away.</h2>
+        <div data-reveal style="display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;">
+          <span class="mchip">Senna</span><span class="mchip">Inventory</span><span class="mchip">Auctions</span><span class="mchip">Competitors</span><span class="mchip">Market</span><span class="mchip">Reservations</span><span class="mchip">Leasing</span><span class="mchip">Customers</span><span class="mchip">Recon</span><span class="mchip">Sales</span><span class="mchip">Reports</span>
+        </div>
+      </div>
+      <div data-reveal class="stackbox">
+        <div class="statl" style="margin-bottom:16px;">Built with</div>
+        <div class="srow"><span>Frontend</span><span class="tt">Vite · React 18 · TypeScript</span></div>
+        <div class="srow"><span>Styling</span><span class="tt">Tailwind v4 · OKLCH tokens</span></div>
+        <div class="srow"><span>Data</span><span class="tt">TanStack Query · React Router</span></div>
+        <div class="srow"><span>Writes</span><span class="tt">Server execute · agent identity</span></div>
+        <div class="srow"><span>Export</span><span class="tt">CSV · JSON · print-to-PDF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:clamp(90px,14vh,180px) 6vw; text-align:center; background:linear-gradient(180deg,#05080f,#070e1c);">
+    <div data-reveal>
+      <h2 style="font-size:clamp(2.2rem,5vw,4rem); font-weight:600; letter-spacing:-0.03em;">Want an agent-first system like this?</h2>
+      <p style="margin-top:22px; font-size:clamp(1.05rem,1.6vw,1.3rem); color:rgba(214,232,248,0.62);">We design agents that operate real businesses — safely.</p>
+      <div style="display:flex; gap:14px; justify-content:center; margin-top:40px; flex-wrap:wrap;">
+        <a href="mailto:hello@fluidmind.ai" style="padding:16px 34px; background:#22d3ee; color:#04121a; font-weight:600; border-radius:100px;">Talk to the lab →</a>
+        <a href="/products/" style="padding:16px 34px; border:1px solid rgba(140,200,230,0.4); color:#dff2ff; font-weight:500; border-radius:100px;">See all products</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding:40px 5vw; background:#05080f; border-top:1px solid rgba(120,180,210,0.1);">
+    <a href="/" style="display:flex; align-items:center; gap:12px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:15px; opacity:0.6;"></a>
+    <div class="sig" style="display:flex; gap:24px; align-items:center; flex-wrap:wrap; font-size:13px; color:rgba(200,222,246,0.45);"><span>© 2026 Fluid Mind — Where AI flows</span><a href="/terms/" style="color:inherit;">Terms</a><a href="/privacy/" style="color:inherit;">Privacy</a></div>
+  </footer>
+
+  <style>
+    .eyebrow { display:inline-flex; align-items:center; gap:14px; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#22d3ee; margin-bottom:22px; }
+    .eyebrow::before { content:''; width:28px; height:1.5px; background:currentColor; opacity:0.55; border-radius:2px; }
+    .pill-priv { font-size:12px; font-weight:600; padding:6px 13px; border-radius:100px; background:rgba(255,255,255,0.06); color:rgba(230,244,255,0.72); border:1px solid rgba(230,244,255,0.2); }
+    .statv { font-size:clamp(2.2rem,3.6vw,3rem); font-weight:600; letter-spacing:-0.03em; color:#f4fbff; }
+    .statl { font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(200,222,246,0.5); margin-top:6px; }
+
+    /* Senna workspace */
+    .senna-shell { display:grid; grid-template-columns:340px 1fr; border-radius:18px; overflow:hidden; border:1px solid oklch(0.32 0.012 72); box-shadow:0 50px 120px -40px rgba(0,0,0,0.8); min-height:520px; }
+    .senna-rail { background:oklch(0.972 0.007 85); border-right:1px solid oklch(0.9 0.008 80); display:flex; flex-direction:column; }
+    .rail-top { padding:16px 18px; border-bottom:1px solid oklch(0.9 0.008 80); display:flex; align-items:baseline; gap:9px; }
+    .rail-body { flex:1; padding:18px; display:flex; flex-direction:column; gap:14px; }
+    .c-msg { font-size:13px; line-height:1.5; border-radius:12px; padding:11px 14px; max-width:92%; }
+    .c-msg.user { align-self:flex-end; background:oklch(0.28 0.01 60); color:#f3f1ea; }
+    .c-msg.agent { align-self:flex-start; background:oklch(0.975 0.05 108); border:1px solid oklch(0.85 0.09 108); color:oklch(0.3 0.03 100); display:flex; gap:10px; }
+    .c-s { width:20px; height:20px; flex-shrink:0; border-radius:6px; background:oklch(0.19 0.006 90); color:#c6e24a; font-weight:600; font-size:11px; display:flex; align-items:center; justify-content:center; }
+    .c-chip { display:inline-block; margin-top:9px; font-size:10.5px; padding:3px 9px; border-radius:6px; background:oklch(0.955 0.008 85); color:oklch(0.45 0.05 108); }
+    .rail-composer { margin:14px; padding:11px 14px; border:1px solid oklch(0.88 0.008 80); border-radius:10px; background:#fff; font-size:13px; display:flex; flex-direction:column; gap:10px; }
+    .scope { font-size:10px; color:oklch(0.5 0.01 75); background:oklch(0.955 0.008 85); align-self:flex-start; padding:3px 8px; border-radius:6px; }
+
+    .senna-canvas { background:oklch(0.265 0.012 72); display:flex; flex-direction:column; }
+    .canvas-toolbar { height:46px; background:oklch(0.225 0.012 72); border-bottom:1px solid oklch(0.33 0.012 72); display:flex; align-items:center; gap:10px; padding:0 18px; }
+    .cb-root { font-size:11px; color:oklch(0.68 0.01 75); } .cb-sep { color:oklch(0.5 0.01 75); } .cb-page { font-size:12.5px; font-weight:500; color:oklch(0.9 0.008 80); }
+    .btn-lime { font-size:12px; font-weight:600; color:#1a1a12; background:#c6e24a; border-radius:7px; padding:5px 12px; }
+    .btn-ghost { font-size:12px; color:oklch(0.82 0.008 80); border:1px solid oklch(0.4 0.012 72); border-radius:7px; padding:5px 11px; }
+    .canvas-well { flex:1; padding:22px; min-height:0; }
+    .sheet { background:oklch(0.995 0.003 85); border-radius:14px; padding:26px 30px; height:100%; box-shadow:0 26px 60px -22px rgba(0,0,0,0.55); }
+    .sheet-eyebrow { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:oklch(0.58 0.05 108); }
+    .sheet-title { font-size:25px; font-weight:500; color:oklch(0.26 0.01 60); margin-top:7px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .chip-o { font-size:10px; color:oklch(0.5 0.01 60); border:1px solid oklch(0.9 0.008 80); border-radius:6px; padding:3px 8px; }
+    .stats { display:flex; gap:12px; margin-top:18px; }
+    .tile { flex:1; border-radius:10px; padding:11px 14px; border:1px solid oklch(0.91 0.008 80); background:oklch(0.985 0.005 85); }
+    .tile.warn { border:1px solid oklch(0.88 0.04 70); background:oklch(0.98 0.025 75); }
+    .tile-v { font-size:22px; font-weight:600; color:oklch(0.28 0.01 60); }
+    .tile.warn .tile-v { color:oklch(0.5 0.09 55); }
+    .tile-l { font-size:11px; color:oklch(0.55 0.01 60); margin-top:2px; }
+    .thead { display:flex; margin-top:18px; padding-bottom:8px; border-bottom:1px solid oklch(0.9 0.008 80); font-size:9.5px; letter-spacing:0.09em; text-transform:uppercase; color:oklch(0.58 0.01 60); }
+    .trow { display:flex; align-items:center; padding:10px 0; border-bottom:1px solid oklch(0.95 0.006 85); font-size:12px; color:oklch(0.3 0.01 60); }
+    .rid { font-size:10.5px; color:oklch(0.55 0.01 60); margin-left:6px; }
+    .tcat { width:110px; font-size:10.5px; color:oklch(0.5 0.01 60); }
+    .tsug { color:oklch(0.44 0.14 152); font-weight:600; }
+    .suggest { display:flex; align-items:center; gap:12px; margin-top:18px; border:1px solid oklch(0.86 0.04 70); background:oklch(0.97 0.03 75); border-radius:12px; padding:12px 16px; }
+    .sug-ico { width:16px; height:16px; border-radius:4px; background:oklch(0.65 0.11 60); flex-shrink:0; }
+    .sug-t { font-size:13px; font-weight:600; color:oklch(0.36 0.06 55); }
+    .sug-s { font-size:11px; color:oklch(0.5 0.04 55); margin-top:2px; }
+    .btn-review { font-size:12px; font-weight:500; color:oklch(0.42 0.02 60); border:1px solid oklch(0.85 0.02 70); border-radius:8px; padding:6px 12px; background:oklch(0.99 0.005 85); }
+    .btn-apply { font-size:12px; font-weight:600; color:oklch(0.98 0.01 85); background:oklch(0.3 0.014 72); border-radius:8px; padding:6px 14px; }
+    .sheet-foot { margin-top:14px; font-size:10px; color:oklch(0.55 0.01 60); }
+
+    .ccard { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.13); border-radius:16px; padding:26px; }
+    .ccard h3 { font-size:1.25rem; font-weight:600; letter-spacing:-0.01em; margin-bottom:10px; }
+    .ccard p { font-size:0.98rem; line-height:1.6; color:rgba(214,232,248,0.6); }
+
+    .grammar { display:flex; align-items:stretch; gap:12px; flex-wrap:wrap; }
+    .gz { flex:1; min-width:150px; background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.16); border-radius:14px; padding:18px 20px; display:flex; flex-direction:column; gap:8px; }
+    .gz-act { border-color:rgba(198,226,74,0.4); background:linear-gradient(150deg,rgba(198,226,74,0.08),#0a1120); }
+    .gz-k { font-size:12px; letter-spacing:0.16em; color:#7fe9ff; }
+    .gz-act .gz-k { color:#c6e24a; }
+    .gz-d { font-size:0.9rem; color:rgba(214,232,248,0.6); }
+    .gz-arrow { align-self:center; color:rgba(120,180,210,0.5); font-size:1.1rem; }
+
+    .flow { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }
+    .fstep { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.14); border-radius:14px; padding:22px; }
+    .fn { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:8px; background:rgba(34,211,238,0.14); color:#22d3ee; font-size:13px; font-weight:600; margin-bottom:14px; }
+    .fstep b { font-size:1.05rem; font-weight:600; display:block; margin-bottom:6px; }
+    .fstep p { font-size:0.92rem; line-height:1.55; color:rgba(214,232,248,0.6); }
+
+    .guard { margin-top:40px; padding:26px 30px; border-radius:16px; border:1px solid rgba(198,226,74,0.28); background:linear-gradient(120deg,rgba(198,226,74,0.06),rgba(10,17,32,0.6)); }
+    .guard p { margin-top:12px; font-size:1.05rem; line-height:1.6; color:rgba(224,232,214,0.78); max-width:70ch; }
+
+    .tcard { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.13); border-radius:14px; padding:20px 22px; transition:border-color 0.3s, transform 0.3s; }
+    .tcard:hover { border-color:rgba(34,211,238,0.4); transform:translateY(-3px); }
+    .tcard h4 { font-size:1.05rem; font-weight:600; margin-bottom:7px; }
+    .tcard p { font-size:0.9rem; line-height:1.5; color:rgba(214,232,248,0.58); }
+
+    .mchip { font-size:0.9rem; font-weight:500; color:#e8e6df; background:rgba(198,226,74,0.08); border:1px solid rgba(198,226,74,0.24); padding:8px 16px; border-radius:100px; }
+    .ctxmock { background:oklch(0.265 0.012 72); border:1px solid oklch(0.34 0.012 72); border-radius:16px; overflow:hidden; box-shadow:0 40px 90px -40px rgba(0,0,0,0.7); }
+    .ctx-view { padding:13px 18px; background:oklch(0.225 0.012 72); border-bottom:1px solid oklch(0.33 0.012 72); font-size:12px; color:oklch(0.82 0.008 80); }
+    .ctx-chat { padding:20px; display:flex; flex-direction:column; gap:14px; background:oklch(0.995 0.003 85); }
+    .ctx-u { align-self:flex-end; background:oklch(0.28 0.01 60); color:#f3f1ea; font-size:13px; border-radius:12px; padding:10px 14px; }
+    .ctx-a { display:flex; gap:10px; background:oklch(0.975 0.05 108); border:1px solid oklch(0.85 0.09 108); color:oklch(0.3 0.03 100); font-size:13px; line-height:1.55; border-radius:12px; padding:12px 14px; }
+    .ctx-s { width:20px; height:20px; flex-shrink:0; border-radius:6px; background:oklch(0.19 0.006 90); color:#c6e24a; font-weight:600; font-size:11px; display:flex; align-items:center; justify-content:center; }
+    .ctx-row { display:flex; justify-content:space-between; margin-top:10px; padding-top:9px; border-top:1px solid oklch(0.9 0.02 108); font-size:12px; }
+    @media (max-width:860px) { .ctxgrid { grid-template-columns:1fr; } }
+    .stackbox { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.14); border-radius:16px; padding:26px; align-self:start; }
+    .srow { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 0; border-bottom:1px solid rgba(120,180,210,0.1); font-size:0.92rem; }
+    .srow:last-child { border-bottom:none; }
+    .srow span:first-child { color:rgba(214,232,248,0.6); }
+    .srow .tt { font-size:0.82rem; color:#9fd7e6; text-align:right; }
+
+    @media (max-width:860px) {
+      .senna-shell { grid-template-columns:1fr; }
+      .senna-rail { display:none; }
+      .msgrid { grid-template-columns:1fr; }
+      .grammar { flex-direction:column; } .gz-arrow { transform:rotate(90deg); }
+    }
+  </style>
+</div>
+
+<script src="/js/fm.js"></script>
+<script>
+FM.onReady(function () {
+  requestAnimationFrame(function () {
+    FM.startCanvas('cvField', FM.field({ bg: '#0a0d0a', fade: 'rgba(10,13,10,0.08)', stroke: 'rgba(198,226,74,0.16)', density: 7000, max: 420, speed: 0.0034 }));
+    FM.initReveals({ stagger: 0.07, threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    FM.initNav({ threshold: 30, bg: 'rgba(6,13,10,0.75)' });
+  });
+});
+</script>
+</body>
+</html>

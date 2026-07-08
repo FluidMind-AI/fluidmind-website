@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noto Lark — FluidMind</title>
+<meta name="description" content="Noto Lark is a self-hosted, open-source AI knowledge agent for Lark/Feishu — grounded, cited answers over your wiki, docs and chats, doc editing by link, reminders, autonomous data updates and self-learning from feedback.">
+<meta property="og:title" content="Noto Lark — FluidMind">
+<meta property="og:description" content="Your company's knowledge, answering back. Open source (Apache-2.0), battle-tested in production.">
+<meta property="og:url" content="https://fluidmind.ai/products/noto-lark/">
+<link rel="icon" type="image/png" href="/png/f%20teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#05080f; color:#eaf3fb; font-family:'Outfit',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#22d3ee; color:#04121a; }
+  a { color:#22d3ee; text-decoration:none; }
+  a:hover { color:#67e8f9; }
+  .sig { font-family:'Bricolage Grotesque','Outfit',sans-serif; }
+  .tt { font-family:'IBM Plex Mono',ui-monospace,monospace; }
+  @keyframes fm-rise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @keyframes fm-pulse { 0%,100% { opacity:0.35; } 50% { opacity:1; } }
+  @keyframes fm-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(7px); } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+
+  <nav id="nav" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw; transition:background 0.4s, padding 0.4s;">
+    <a href="/" style="display:flex; align-items:center; gap:10px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:16px; opacity:0.9;"></a>
+    <a class="sig" href="/products/" style="font-size:14px; font-weight:500; color:rgba(230,244,255,0.66);">← All products</a>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; padding:clamp(120px,20vh,220px) 5vw clamp(60px,9vh,100px); overflow:hidden; background:radial-gradient(120% 90% at 24% 6%, #06283a 0%, #061420 46%, #05080f 100%);">
+    <canvas id="cvField" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.45;"></canvas>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,8,15,0.35) 0%, transparent 40%, #05080f 100%); pointer-events:none;"></div>
+    <div style="position:relative; z-index:2; max-width:1240px; margin:0 auto;">
+      <div data-reveal style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:26px;">
+        <span class="badge-oss sig">Open source · Apache-2.0</span>
+        <span class="badge-oss sig" style="background:rgba(124,132,255,0.14); color:#a9b0ff; border-color:rgba(124,132,255,0.35);">Battle-tested in production</span>
+      </div>
+      <div data-reveal class="eyebrow">Knowledge agent · Lark / Feishu</div>
+      <h1 data-reveal style="font-size:clamp(2.6rem,6.4vw,5.4rem); font-weight:600; line-height:0.98; letter-spacing:-0.035em; max-width:15ch;">Your company&#39;s knowledge, <span style="font-style:italic; font-weight:300; color:#5fd6ee;">answering back</span>.</h1>
+      <p data-reveal style="margin-top:30px; font-size:clamp(1.15rem,1.8vw,1.5rem); line-height:1.55; color:rgba(214,232,248,0.72); max-width:64ch;">Noto Lark is a self-hosted AI agent that lives in your Lark/Feishu chat. It answers from your own wiki, docs, Drive and chats with citations, retrieves any document on request, reads important details out of emails, sets reminders, and updates your data on its own by the rules you set — and it gets smarter every day from your team&#39;s feedback.</p>
+      <div data-reveal style="display:flex; gap:14px; margin-top:40px; flex-wrap:wrap;">
+        <a href="https://github.com/FluidMind-AI/noto-lark" target="_blank" rel="noopener" style="padding:15px 30px; background:#22d3ee; color:#04121a; font-weight:600; border-radius:100px;">View on GitHub →</a>
+        <a href="#capabilities" style="padding:15px 30px; border:1px solid rgba(140,200,230,0.4); color:#dff2ff; font-weight:500; border-radius:100px;">What it does</a>
+      </div>
+      <div data-reveal style="display:flex; gap:clamp(24px,4vw,56px); margin-top:52px; flex-wrap:wrap;">
+        <div><div class="statv">Learns</div><div class="statl">from every correction</div></div>
+        <div><div class="statv">Cited</div><div class="statl">answers, every time</div></div>
+        <div><div class="statv">Acts</div><div class="statl">docs · reminders · data</div></div>
+        <div><div class="statv">1</div><div class="statl">self-hosted box</div></div>
+      </div>
+      <div data-reveal class="tt" style="margin-top:14px; font-size:11px; color:rgba(200,222,246,0.4);">No external services beyond Lark and your LLM · a Mac mini runs it comfortably</div>
+    </div>
+  </header>
+
+  <!-- CHAT MOCK -->
+  <section style="padding:0 5vw clamp(70px,10vh,120px); background:#05080f;">
+    <div data-reveal style="max-width:900px; margin:0 auto;">
+      <div class="chatwin">
+        <div class="chat-top"><span class="ch-ava">N</span><div><div class="ch-name">Noto</div><div class="ch-sub tt">knowledge agent · #eng-team</div></div><span style="flex:1"></span><span class="ch-live tt">● online</span></div>
+        <div class="chat-body">
+          <div class="cb user"><div class="bub">@Noto what's our refund policy for annual plans?</div></div>
+          <div class="cb agent"><span class="ag-ava">N</span><div class="bub agent">
+            Annual plans are refundable <b>pro-rata within 30 days</b>; after that, credit only. Approvals go through Finance.
+            <div class="cites"><span class="cite tt">📄 Billing Policy · §4.2</span><span class="cite tt">📄 Finance Wiki · Refunds</span></div>
+          </div></div>
+          <div class="cb user"><div class="bub">make a doc summarizing this for the support team</div></div>
+          <div class="cb agent"><span class="ag-ava">N</span><div class="bub agent">Created <b>"Refund Policy — Support Summary"</b> in the Support wiki.<div class="doccard tt">📝 Refund Policy — Support Summary <span class="doclink">open ↗</span></div></div></div>
+          <div class="cb typing tt">Noto is retrieving<span class="td">·</span><span class="td">·</span><span class="td">·</span></div>
+        </div>
+        <div class="chat-input tt"><span style="color:rgba(200,222,246,0.4)">Message Noto…</span><span class="trust">member</span></div>
+      </div>
+      <div class="tt" style="text-align:center; margin-top:16px; font-size:12px; color:rgba(200,222,246,0.4);">DM or @mention in any group — grounded answers with links to the exact source</div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" style="padding:clamp(70px,10vh,120px) 5vw; background:linear-gradient(180deg,#05080f,#070e1c);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">What it does</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:22ch; line-height:1.04;">One agent, the whole knowledge loop — that teaches itself.</h2>
+
+      <!-- featured: self-learning flywheel -->
+      <div data-reveal class="flywheel">
+        <div class="fly-copy">
+          <div class="fly-badge tt">★ Self-learning</div>
+          <h3>It gets better every single day.</h3>
+          <p>Noto learns from your team in the background. Every correction becomes a reviewed lesson, a 👍 saves a good answer as a retrieval hint, and repeated personal fixes become private per-user preferences — with <span class="tt" style="color:#7fe9ff;">/forget</span> to undo. The agent you deploy this month is sharper next month, on your knowledge, without retraining.</p>
+        </div>
+        <div class="fly-cycle">
+          <div class="fly-node n1">Answer</div>
+          <div class="fly-node n2">Feedback</div>
+          <div class="fly-node n3">Lesson</div>
+          <div class="fly-node n4">Better answer</div>
+          <div class="fly-ring"></div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-top:16px;">
+        <div data-reveal class="cap"><div class="cap-i">◇</div><h3>Grounded Q&amp;A in chat</h3><p>Plans search queries, retrieves from lexical + vector indexes over your synced corpus, and answers with links to the exact source docs. Injection-hardened: retrieved content is fenced as data.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">⌕</div><h3>Retrieves any document</h3><p>Ask for a policy, a spec, a contract or a Base record and Noto finds and pulls it from your wiki, Drive and docs — no hunting through folders.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">✉</div><h3>Reads your email</h3><p>Detects the important details in emails and threads — dates, amounts, action items — and turns them into calendar entries, reminders or data updates.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">⟳</div><h3>Autonomous data updates</h3><p>Give it rules once and Noto keeps your Bases current on its own — updating records as things change, so nobody maintains a spreadsheet by hand.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">◔</div><h3>Reminders</h3><p>Set, list and manage reminders straight from chat. Noto nudges you and the team at the right moment, no separate app.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">✎</div><h3>Doc creation &amp; editing by link</h3><p>"Make a doc summarizing X", or paste any Lark/wiki doc link and ask for a change. Block-level edits preserve native history — and it can never delete a doc, file or record.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">◷</div><h3>Screenshot → calendar</h3><p>Send a screenshot of an email or thread with "add to my calendar". It reads the image, asks for anything missing, checks conflicts, and sets the entry with reminders.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">¥</div><h3>Expense logging</h3><p>DM a receipt or type <span class="tt" style="color:#7fe9ff;">/expense 42 SGD taxi</span> and it lands a row in your reimbursement Base, pending approval.</p></div>
+        <div data-reveal class="cap"><div class="cap-i">⚙</div><h3>An admin panel</h3><p>Magic-link login from chat, feedback and lesson review queues, usage analytics, system health, and ops buttons — resync, restart, tunnel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section style="padding:clamp(70px,10vh,120px) 5vw; background:#070e1c;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">How it's built</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:22ch; line-height:1.04;">A single always-on box. No moving parts to babysit.</h2>
+      <p data-reveal style="margin-top:26px; font-size:clamp(1.05rem,1.6vw,1.25rem); line-height:1.6; color:rgba(214,232,248,0.66); max-width:64ch;">Python, SQLite, local vector + full-text indexes — nothing external beyond Lark and your LLM. Every model call goes through one chokepoint, so swapping the engine is a one-function change.</p>
+
+      <div data-reveal class="pipe">
+        <div class="pnode"><span class="tt pk">Lark webhook</span><span class="pd">Tailscale Funnel · 3s-ack callbacks</span></div>
+        <span class="parrow">→</span>
+        <div class="pnode"><span class="tt pk">lark_bot</span><span class="pd">one worker queue · supervisor</span></div>
+        <span class="parrow">→</span>
+        <div class="pnode acc"><span class="tt pk">noto_agent</span><span class="pd">planner → answer · create_doc · edit_doc · calendar · clarify</span></div>
+        <span class="parrow">→</span>
+        <div class="pnode"><span class="tt pk">noto_research</span><span class="pd">query plan → hybrid retrieval → cited synthesis</span></div>
+      </div>
+      <div data-reveal class="tt" style="margin-top:16px; font-size:12px; color:rgba(200,222,246,0.45); text-align:center;">Nightly resync: wiki + docs + chats → FTS index + vector embeddings</div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section style="padding:clamp(70px,10vh,120px) 5vw; background:linear-gradient(180deg,#070e1c,#05080f);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">Safety rails you get for free</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:20ch; line-height:1.04;">Built to be trusted with the whole company's data.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-top:52px;">
+        <div data-reveal class="scard"><h4>No-delete guarantee</h4><p>The agent can't delete a doc, file, folder, message or Base record — a startup scan aborts if delete-capable code is ever introduced.</p></div>
+        <div data-reveal class="scard"><h4>Trust tiers on every message</h4><p>Admin, member and external tiers gate what each inbound message can do. Non-admins can never trigger writes.</p></div>
+        <div data-reveal class="scard"><h4>Injection fencing</h4><p>Retrieved content is fenced as data and inbound messages pass a trust/sanitizer layer before the model ever sees them.</p></div>
+        <div data-reveal class="scard"><h4>Operator-confirmed edits</h4><p>Block edits are confirmed by an operator; per-user memory is DM-only and isolated, with tombstones so deleted facts stay deleted.</p></div>
+        <div data-reveal class="scard"><h4>Won't die silently</h4><p>A worker supervisor, rate-limit backoff, and push alerts to a chat when background jobs fail keep the bot honest.</p></div>
+        <div data-reveal class="scard scard-cta"><h4>Read the source</h4><p>It's Apache-2.0 and documented down to the Lark Console click-path.</p><a class="feat-link" href="https://github.com/FluidMind-AI/noto-lark" target="_blank" rel="noopener">github.com/FluidMind-AI/noto-lark →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINEAGE / CTA -->
+  <section style="padding:clamp(90px,14vh,180px) 6vw; text-align:center; background:#070e1c;">
+    <div data-reveal>
+      <div class="statl" style="margin-bottom:16px;">Status &amp; lineage</div>
+      <h2 style="font-size:clamp(2rem,4.6vw,3.6rem); font-weight:600; letter-spacing:-0.03em; max-width:24ch; margin:0 auto; line-height:1.08;">The generalized chassis of an agent that runs a real company, daily.</h2>
+      <p style="margin-top:22px; font-size:clamp(1.05rem,1.6vw,1.3rem); color:rgba(214,232,248,0.62); max-width:56ch; margin-left:auto; margin-right:auto;">The private deployment and this open repo share a core — fixes flow here as they're battle-tested there. Issues and PRs welcome.</p>
+      <div style="display:flex; gap:14px; justify-content:center; margin-top:40px; flex-wrap:wrap;">
+        <a href="https://github.com/FluidMind-AI/noto-lark" target="_blank" rel="noopener" style="padding:16px 34px; background:#22d3ee; color:#04121a; font-weight:600; border-radius:100px;">Star it on GitHub</a>
+        <a href="mailto:hello@fluidmind.ai" style="padding:16px 34px; border:1px solid rgba(140,200,230,0.4); color:#dff2ff; font-weight:500; border-radius:100px;">Talk to the lab</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding:40px 5vw; background:#05080f; border-top:1px solid rgba(120,180,210,0.1);">
+    <a href="/" style="display:flex; align-items:center; gap:12px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:15px; opacity:0.6;"></a>
+    <div class="sig" style="display:flex; gap:24px; align-items:center; flex-wrap:wrap; font-size:13px; color:rgba(200,222,246,0.45);"><span>© 2026 Fluid Mind — Noto Lark (Apache-2.0)</span><a href="/terms/" style="color:inherit;">Terms</a><a href="/privacy/" style="color:inherit;">Privacy</a></div>
+  </footer>
+
+  <style>
+    .eyebrow { display:inline-flex; align-items:center; gap:14px; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#22d3ee; margin-bottom:22px; }
+    .eyebrow::before { content:''; width:28px; height:1.5px; background:currentColor; opacity:0.55; border-radius:2px; }
+    .badge-oss { font-size:12px; font-weight:600; padding:7px 15px; border-radius:100px; background:rgba(34,211,238,0.12); color:#7fe9ff; border:1px solid rgba(34,211,238,0.3); }
+    .statv { font-size:clamp(2.2rem,3.6vw,3rem); font-weight:600; letter-spacing:-0.03em; color:#f4fbff; }
+    .statl { font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(200,222,246,0.5); margin-top:6px; }
+
+    /* chat window */
+    .chatwin { border-radius:18px; overflow:hidden; border:1px solid rgba(120,180,210,0.16); background:#0a1322; box-shadow:0 46px 110px -40px rgba(0,120,150,0.4); }
+    .chat-top { display:flex; align-items:center; gap:12px; padding:16px 18px; background:#0d1a2e; border-bottom:1px solid rgba(120,180,210,0.12); }
+    .ch-ava { width:34px; height:34px; border-radius:10px; background:linear-gradient(150deg,#22d3ee,#0891b2); color:#04121a; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .ch-name { font-weight:600; color:#eaf4ff; }
+    .ch-sub { font-size:11px; color:rgba(200,222,246,0.5); }
+    .ch-live { font-size:11px; color:#4ade80; }
+    .chat-body { padding:24px; display:flex; flex-direction:column; gap:16px; }
+    .cb { display:flex; gap:11px; align-items:flex-start; }
+    .cb.user { justify-content:flex-end; }
+    .ag-ava { width:26px; height:26px; border-radius:8px; background:linear-gradient(150deg,#22d3ee,#0891b2); color:#04121a; font-weight:700; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .bub { max-width:78%; background:rgba(200,222,246,0.08); border-radius:13px; padding:12px 16px; font-size:0.95rem; line-height:1.5; color:#e8f2ff; }
+    .bub.agent { background:rgba(34,211,238,0.07); border:1px solid rgba(34,211,238,0.18); }
+    .cites { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .cite { font-size:10.5px; color:#7fe9ff; background:rgba(34,211,238,0.09); border:1px solid rgba(34,211,238,0.2); border-radius:7px; padding:4px 9px; }
+    .doccard { margin-top:11px; display:flex; align-items:center; gap:10px; font-size:11px; color:#cfeaff; background:rgba(3,8,16,0.5); border:1px solid rgba(120,180,210,0.16); border-radius:9px; padding:10px 13px; }
+    .doclink { margin-left:auto; color:#7fe9ff; }
+    .typing { font-size:11px; color:rgba(200,222,246,0.5); }
+    .td { animation:fm-pulse 1.2s infinite; } .td:nth-child(2){animation-delay:.2s;} .td:nth-child(3){animation-delay:.4s;}
+    .chat-input { margin:0 18px 18px; padding:12px 15px; border:1px solid rgba(120,180,210,0.16); border-radius:11px; background:#0d1a2e; font-size:13px; display:flex; align-items:center; }
+    .trust { margin-left:auto; font-size:10px; color:#7fe9ff; background:rgba(34,211,238,0.1); padding:3px 9px; border-radius:100px; }
+
+    .cap { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.13); border-radius:18px; padding:28px; transition:border-color 0.3s, transform 0.3s; }
+    @keyframes fly-spin { to { transform:rotate(360deg); } }
+    .flywheel { display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(32px,5vw,64px); align-items:center; margin-top:44px; margin-bottom:16px; padding:clamp(28px,4vw,44px); border-radius:20px; border:1px solid rgba(34,211,238,0.3); background:linear-gradient(135deg,rgba(34,211,238,0.1),rgba(10,17,32,0.8)); }
+    .fly-badge { display:inline-block; font-size:12px; letter-spacing:0.1em; color:#7fe9ff; background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.3); border-radius:100px; padding:5px 13px; margin-bottom:16px; }
+    .fly-copy h3 { font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:600; letter-spacing:-0.02em; line-height:1.06; }
+    .fly-copy p { margin-top:16px; font-size:clamp(1rem,1.45vw,1.15rem); line-height:1.65; color:rgba(214,232,248,0.7); }
+    .fly-cycle { position:relative; width:100%; max-width:260px; aspect-ratio:1; margin:0 auto; }
+    .fly-ring { position:absolute; inset:14%; border:1.5px dashed rgba(34,211,238,0.4); border-radius:50%; animation:fly-spin 14s linear infinite; }
+    .fly-node { position:absolute; transform:translate(-50%,-50%); font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; color:#cfeaff; background:#0a1526; border:1px solid rgba(34,211,238,0.4); border-radius:100px; padding:8px 14px; white-space:nowrap; box-shadow:0 0 20px -6px rgba(34,211,238,0.5); }
+    .fly-node.n1 { left:50%; top:6%; } .fly-node.n2 { left:94%; top:50%; } .fly-node.n3 { left:50%; top:94%; } .fly-node.n4 { left:6%; top:50%; color:#7fe9ff; }
+    @media (max-width:760px) { .flywheel { grid-template-columns:1fr; } }
+    .cap:hover { border-color:rgba(34,211,238,0.4); transform:translateY(-4px); }
+    .cap-i { font-size:1.4rem; color:#22d3ee; margin-bottom:14px; }
+    .cap h3 { font-size:1.2rem; font-weight:600; margin-bottom:10px; letter-spacing:-0.01em; }
+    .cap p { font-size:0.96rem; line-height:1.6; color:rgba(214,232,248,0.62); }
+
+    .pipe { display:flex; align-items:stretch; gap:12px; flex-wrap:wrap; margin-top:52px; }
+    .pnode { flex:1; min-width:180px; background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.16); border-radius:14px; padding:18px 20px; display:flex; flex-direction:column; gap:8px; }
+    .pnode.acc { border-color:rgba(34,211,238,0.4); background:linear-gradient(150deg,rgba(34,211,238,0.08),#0a1120); }
+    .pk { font-size:13px; color:#7fe9ff; }
+    .pd { font-size:0.86rem; color:rgba(214,232,248,0.6); line-height:1.45; }
+    .parrow { align-self:center; color:rgba(120,180,210,0.5); }
+
+    .scard { background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.14); border-radius:16px; padding:24px; }
+    .scard h4 { font-size:1.1rem; font-weight:600; margin-bottom:9px; }
+    .scard p { font-size:0.92rem; line-height:1.6; color:rgba(214,232,248,0.6); }
+    .scard-cta { background:linear-gradient(150deg,rgba(34,211,238,0.1),rgba(10,17,32,0.9)); border-color:rgba(34,211,238,0.3); }
+    .feat-link { display:inline-block; margin-top:14px; font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:0.92rem; color:#7fe9ff; }
+
+    @media (max-width:860px) { .pipe { flex-direction:column; } .parrow { transform:rotate(90deg); } }
+  </style>
+</div>
+
+<script src="/js/fm.js"></script>
+<script>
+FM.onReady(function () {
+  requestAnimationFrame(function () {
+    FM.startCanvas('cvField', FM.field({ bg: '#061420', fade: 'rgba(6,20,32,0.08)', stroke: 'rgba(34,211,238,0.16)', density: 7000, max: 420, speed: 0.0034 }));
+    FM.initReveals({ stagger: 0.07, threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    FM.initNav({ threshold: 30, bg: 'rgba(6,16,31,0.75)' });
+  });
+});
+</script>
+</body>
+</html>

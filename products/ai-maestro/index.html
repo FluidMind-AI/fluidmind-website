@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Maestro — FluidMind</title>
+<meta name="description" content="AI Maestro turns scattered coding agents into a coordinated team — persistent memory, live code-graph understanding, agent-to-agent messaging and a decentralized peer mesh, from one dashboard. A FluidMind × 23Blocks collaboration.">
+<meta property="og:title" content="AI Maestro — FluidMind">
+<meta property="og:description" content="Stop juggling terminals. Conduct your agents. Open source, model- and machine-agnostic agent orchestration.">
+<meta property="og:url" content="https://fluidmind.ai/products/ai-maestro/">
+<link rel="icon" type="image/png" href="/png/f%20teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#05080f; color:#eaf3fb; font-family:'Outfit',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#22d3ee; color:#04121a; }
+  a { color:#22d3ee; text-decoration:none; }
+  a:hover { color:#67e8f9; }
+  .sig { font-family:'Bricolage Grotesque','Outfit',sans-serif; }
+  .tt { font-family:'IBM Plex Mono',ui-monospace,monospace; }
+  .grotesk { font-family:'Space Grotesk',sans-serif; }
+  @keyframes fm-rise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @keyframes fm-pulse { 0%,100% { opacity:0.35; } 50% { opacity:1; } }
+  @keyframes fm-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(7px); } }
+  @keyframes fm-blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+
+  <nav id="nav" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw; transition:background 0.4s, padding 0.4s;">
+    <a href="/" style="display:flex; align-items:center; gap:10px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:16px; opacity:0.9;"></a>
+    <a class="sig" href="/products/" style="font-size:14px; font-weight:500; color:rgba(230,244,255,0.66);">← All products</a>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; padding:clamp(120px,20vh,220px) 5vw clamp(60px,9vh,100px); overflow:hidden; background:radial-gradient(120% 90% at 25% 6%, #171233 0%, #080a16 46%, #05080f 100%);">
+    <canvas id="cvSwarm" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.8;"></canvas>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,8,15,0.4) 0%, rgba(5,8,15,0.1) 40%, #05080f 100%); pointer-events:none;"></div>
+    <div style="position:relative; z-index:2; max-width:1240px; margin:0 auto;">
+      <div data-reveal style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:26px;">
+        <a class="badge23 sig" href="https://23blocks.com/home" target="_blank" rel="noopener" style="text-decoration:none;">In partnership with 23Blocks ↗</a>
+        <span class="badge-oss sig">Open source · MIT</span>
+      </div>
+      <div data-reveal class="eyebrow" style="color:#a78bfa;">Agent orchestration · mission control</div>
+      <h1 data-reveal style="font-size:clamp(2.6rem,6.4vw,5.4rem); font-weight:600; line-height:0.98; letter-spacing:-0.035em; max-width:16ch;">Stop juggling terminals. <span style="color:#a78bfa;">Conduct</span> your agents.</h1>
+      <p data-reveal style="margin-top:30px; font-size:clamp(1.15rem,1.8vw,1.5rem); line-height:1.55; color:rgba(224,228,248,0.72); max-width:64ch;">AI Maestro turns scattered coding agents into a coordinated team — persistent memory, live code-graph understanding, agent-to-agent messaging and a decentralized peer mesh, all from one dashboard. Model-agnostic, machine-agnostic, and built so one person can run the output of a whole company.</p>
+      <div data-reveal style="display:flex; gap:14px; margin-top:40px; flex-wrap:wrap;">
+        <a href="https://ai-maestro.23blocks.com/" target="_blank" rel="noopener" style="padding:15px 30px; background:#a78bfa; color:#160f30; font-weight:600; border-radius:100px;">Visit website ↗</a>
+        <a href="https://github.com/23blocks-OS/ai-maestro" target="_blank" rel="noopener" style="padding:15px 30px; border:1px solid rgba(167,139,250,0.4); color:#e5ddff; font-weight:500; border-radius:100px;">View on GitHub ↗</a>
+        <a href="#features" style="padding:15px 30px; border:1px solid rgba(167,139,250,0.4); color:#e5ddff; font-weight:500; border-radius:100px;">See what it does</a>
+      </div>
+      <div data-reveal style="display:flex; gap:clamp(24px,4vw,56px); margin-top:52px; flex-wrap:wrap;">
+        <div><div class="statv">∞</div><div class="statl">machines, one mesh</div></div>
+        <div><div class="statv">Any</div><div class="statl">agent · any LLM</div></div>
+        <div><div class="statv">100+</div><div class="statl">agents, one operator</div></div>
+        <div><div class="statv">~100ms</div><div class="statl">code-graph re-index</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD MOCK -->
+  <section style="padding:0 5vw clamp(70px,10vh,120px); background:#05080f;">
+    <div data-reveal class="grotesk" style="max-width:1240px; margin:0 auto;">
+      <div class="dash">
+        <div class="dash-top">
+          <span class="grotesk" style="font-weight:600; color:#e9e6f5;">AI Maestro</span>
+          <span class="tt dash-ver">v0.19</span>
+          <span style="flex:1"></span>
+          <span class="tt dash-host">localhost:23000</span>
+          <span class="mesh"><i class="ok"></i><i class="ok"></i><i class="warn"></i> peers</span>
+        </div>
+        <div class="dash-body">
+          <!-- sidebar -->
+          <div class="dash-side">
+            <div class="side-h tt">Agents</div>
+            <div class="tree-g"><span class="tdot" style="background:#a78bfa"></span>product</div>
+            <div class="tree-c active"><span class="cdot"></span>backend-architect <span class="agtag">claude</span></div>
+            <div class="tree-c"><span class="cdot"></span>frontend-developer <span class="agtag">cursor</span></div>
+            <div class="tree-g"><span class="tdot" style="background:#60a5fa"></span>growth</div>
+            <div class="tree-c"><span class="cdot"></span>content-writer <span class="agtag">aider</span></div>
+            <div class="tree-c"><span class="cdot"></span>seo-analyst <span class="agtag">codex</span></div>
+            <div class="tree-g"><span class="tdot" style="background:#c6e24a"></span>ops</div>
+            <div class="tree-c"><span class="cdot"></span>data-analyst <span class="agtag">local</span></div>
+          </div>
+          <!-- terminal -->
+          <div class="dash-term">
+            <div class="term-tabs"><span class="tt tab active">backend-architect</span><span class="tt tab">frontend-developer</span></div>
+            <div class="term-body tt">
+              <div class="tl dim">● Reading agent memory (CozoDB)… 1,284 nodes</div>
+              <div class="tl"><span class="tg">✦</span> Implemented <span class="tw">GET /api/users</span> — paginated, cached 5m.</div>
+              <div class="tl dim">→ messaging frontend-developer: "users API ready"</div>
+              <div class="tl"><span class="tp">›</span> <span class="cursor">▍</span></div>
+            </div>
+          </div>
+          <!-- right rail -->
+          <div class="dash-rail">
+            <div class="rail-tabs"><span class="rtab active">Messages</span><span class="rtab">Memory</span><span class="rtab">Graph</span></div>
+            <div class="msg">
+              <div class="msg-h"><span class="msg-from">backend-architect</span><span class="pri high tt">high</span></div>
+              <div class="msg-t">GET /api/users endpoint ready — paginated, supports ?page&amp;limit.</div>
+              <div class="msg-meta tt"><span class="typ">notification</span> · 2m ago</div>
+            </div>
+            <div class="graphmini">
+              <span class="gn" style="left:14%; top:24%"></span><span class="gn" style="left:52%; top:14%"></span><span class="gn" style="left:78%; top:40%"></span><span class="gn" style="left:38%; top:60%"></span><span class="gn" style="left:70%; top:74%"></span>
+              <svg class="gedge" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="14" y1="24" x2="52" y2="14"/><line x1="52" y1="14" x2="78" y2="40"/><line x1="14" y1="24" x2="38" y2="60"/><line x1="38" y1="60" x2="70" y2="74"/><line x1="78" y1="40" x2="70" y2="74"/></svg>
+              <span class="tt graphlbl">code graph · 5 nodes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tt" style="text-align:center; margin-top:16px; font-size:12px; color:rgba(200,222,246,0.4);">One dashboard — hierarchical agents, live terminals, memory, messages and code graph</div>
+    </div>
+  </section>
+
+  <!-- ONE PERSON -->
+  <section style="padding:clamp(80px,13vh,170px) 6vw; text-align:center; background:linear-gradient(180deg,#05080f,#0a0a1a); position:relative; overflow:hidden;">
+    <div data-reveal style="max-width:960px; margin:0 auto;">
+      <div class="statl" style="color:#a78bfa; margin-bottom:18px;">The real unlock</div>
+      <h2 style="font-size:clamp(2.2rem,5.4vw,4.4rem); font-weight:600; letter-spacing:-0.035em; line-height:1.02;">One person. A whole <span style="color:#a78bfa;">company&#39;s</span> worth of agents.</h2>
+      <p style="margin-top:26px; font-size:clamp(1.1rem,1.7vw,1.4rem); line-height:1.6; color:rgba(224,228,248,0.7); max-width:64ch; margin-left:auto; margin-right:auto;">Product, growth, ops, research — each a team of agents that remember context, coordinate directly and run around the clock across every machine you own. AI Maestro is the mission control that lets a single operator direct all of it, so a tiny team ships like a large one.</p>
+      <div style="display:flex; justify-content:center; gap:clamp(20px,4vw,52px); margin-top:44px; flex-wrap:wrap;">
+        <div><div class="statv" style="color:#c4b5fd;">Build</div><div class="statl">write &amp; ship the product</div></div>
+        <div><div class="statv" style="color:#c4b5fd;">Run</div><div class="statl">operate the business</div></div>
+        <div><div class="statv" style="color:#c4b5fd;">Scale</div><div class="statl">add machines, not headcount</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" style="padding:clamp(70px,10vh,120px) 5vw; background:linear-gradient(180deg,#05080f,#0a0a1a);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow" style="color:#a78bfa;">What it does</div>
+      <h2 data-reveal style="font-size:clamp(2rem,4.4vw,3.4rem); font-weight:600; letter-spacing:-0.03em; max-width:24ch; line-height:1.04;">Four things that turn tools into a team.</h2>
+      <p data-reveal style="margin-top:22px; font-size:clamp(1.02rem,1.5vw,1.2rem); line-height:1.6; color:rgba(214,232,248,0.6); max-width:60ch;">Every agent — whatever CLI or model it runs — becomes a coordinated teammate that remembers, understands your code, and talks to the others.</p>
+
+      <div class="feat2" style="margin-top:64px;">
+        <div data-reveal>
+          <div class="fnum tt">01</div>
+          <h3>One dashboard, unlimited machines</h3>
+          <p>A decentralized peer mesh where every node is equal — no central server. Add a host once and both sides auto-discover; remote agents behave exactly like local ones via transparent WebSocket proxying, with green/red/yellow health at a glance and Tailscale for encrypted links.</p>
+          <div class="chips"><span class="chip">Peer mesh</span><span class="chip">Auto-discovery</span><span class="chip">Tailscale</span></div>
+        </div>
+        <div data-reveal class="fviz">
+          <div class="mesh-diagram">
+            <div class="node">MacBook</div><div class="node">Mac&nbsp;Mini</div><div class="node">AWS</div>
+            <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="40" y1="30" x2="160" y2="30"/><line x1="40" y1="30" x2="100" y2="98"/><line x1="160" y1="30" x2="100" y2="98"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat2 rev">
+        <div data-reveal>
+          <div class="fnum tt">02</div>
+          <h3>Agents that remember</h3>
+          <p>Every agent gets persistent memory in an embedded CozoDB graph. A background "subconscious" indexes conversations for semantic search, consolidates long-term memory, and self-staggers so it scales past 100 agents without CPU spikes. No more re-explaining context each session.</p>
+          <div class="chips"><span class="chip">CozoDB</span><span class="chip">Semantic search</span><span class="chip">Subconscious</span></div>
+        </div>
+        <div data-reveal class="fviz">
+          <div class="memlist tt">
+            <div class="mem"><span class="mdot"></span>indexed conversation #1,284</div>
+            <div class="mem"><span class="mdot"></span>embedding · all-MiniLM-L6-v2</div>
+            <div class="mem"><span class="mdot"></span>consolidated 42 → 6 facts</div>
+            <div class="mem dim"><span class="mdot"></span>next pass in 4m (idle)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat2">
+        <div data-reveal>
+          <div class="fnum tt">03</div>
+          <h3>Agents that understand code</h3>
+          <p>A live Code Graph, parsed with ts-morph across Ruby, TypeScript, Python and more, maps classes, functions and components and how they import, call and extend each other. Delta indexing keeps it current in ~100ms, so agents know the shape of your codebase before they touch it.</p>
+          <div class="chips"><span class="chip">ts-morph</span><span class="chip">Multi-language</span><span class="chip">Delta index</span></div>
+        </div>
+        <div data-reveal class="fviz">
+          <div class="graphbig">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="20" y1="30" x2="55" y2="18"/><line x1="55" y1="18" x2="82" y2="38"/><line x1="20" y1="30" x2="42" y2="62"/><line x1="42" y1="62" x2="74" y2="72"/><line x1="82" y1="38" x2="74" y2="72"/><line x1="55" y1="18" x2="42" y2="62"/></svg>
+            <span class="gn2" style="left:20%; top:30%"></span><span class="gn2 fn" style="left:55%; top:18%"></span><span class="gn2" style="left:82%; top:38%"></span><span class="gn2 cp" style="left:42%; top:62%"></span><span class="gn2" style="left:74%; top:72%"></span>
+            <div class="tt glegend"><span><i style="background:#a78bfa"></i>class</span><span><i style="background:#60a5fa"></i>fn</span><span><i style="background:#22d3ee"></i>component</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat2 rev">
+        <div data-reveal>
+          <div class="fnum tt">04</div>
+          <h3>Agents that talk to each other</h3>
+          <p>A dual-channel messaging system: persistent file-based messages with priorities and types, plus instant tmux notifications for the urgent stuff. Agents coordinate directly — your backend agent hands off to frontend without you playing messenger — and a Slack bridge brings the whole team in.</p>
+          <div class="chips"><span class="chip">Inbox / outbox</span><span class="chip">tmux alerts</span><span class="chip">Slack bridge</span></div>
+        </div>
+        <div data-reveal class="fviz">
+          <div class="inbox">
+            <div class="ib"><span class="ib-f">backend → frontend</span><span class="pri high tt">high</span><div class="ib-t">users API ready</div></div>
+            <div class="ib"><span class="ib-f">qa → backend</span><span class="pri urgent tt">urgent</span><div class="ib-t">prod db check</div></div>
+            <div class="ib dim"><span class="ib-f">frontend → qa</span><span class="pri normal tt">normal</span><div class="ib-t">integrated, verify</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALSO -->
+  <section style="padding:clamp(70px,10vh,120px) 5vw; background:#0a0a1a;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow" style="color:#a78bfa;">And more</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:16px; margin-top:44px;">
+        <div data-reveal class="acard"><h4>Universal agent support</h4><p>Claude Code, Aider, Cursor, Copilot CLI, Codex or your own scripts — anything terminal-based, on any model. Built on tmux + xterm.js with WebGL, streamed over WebSocket.</p></div>
+        <div data-reveal class="acard"><h4>A zoomable agent canvas</h4><p>Step back into a spatial “immersive” view of your entire workforce — every agent as a live card you can zoom, arrange and jump into. Mission control at a glance.</p></div>
+        <div data-reveal class="acard"><h4>Portable agents</h4><p>Export, import, transfer and clone agents as .zip — metadata, settings, message history and repos — across any machine in the mesh.</p></div>
+        <div data-reveal class="acard"><h4>Skills, hooks &amp; CLI</h4><p>A drop-in plugin adds planning, memory-search, docs-search, graph-query and messaging skills, plus 3 hooks and 32 CLI scripts — installed in one command.</p></div>
+        <div data-reveal class="acard"><h4>Conversation memory</h4><p>Browse every conversation an agent has had, with thinking and tool usage, searchable semantically across all of them.</p></div>
+        <div data-reveal class="acard"><h4>Auto-generated docs</h4><p>Living documentation extracted straight from your codebase and indexed for search — no manual upkeep.</p></div>
+        <div data-reveal class="acard"><h4>Works from your phone</h4><p>A fully mobile-optimized dashboard with touch controls — monitor and steer agents from anywhere over Tailscale.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section style="padding:clamp(60px,8vh,110px) 5vw; background:linear-gradient(180deg,#0a0a1a,#05080f);">
+    <div data-reveal style="max-width:1240px; margin:0 auto;">
+      <div class="statl" style="margin-bottom:22px;">Built with</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <span class="tech">Next.js 14</span><span class="tech">React 18</span><span class="tech">CozoDB</span><span class="tech">ts-morph</span><span class="tech">Transformers.js</span><span class="tech">xterm.js · WebGL</span><span class="tech">node-pty</span><span class="tech">Cytoscape</span><span class="tech">WebSocket</span><span class="tech">Framer Motion</span><span class="tech">tmux</span><span class="tech">Space Grotesk</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23BLOCKS + CTA -->
+  <section style="padding:clamp(90px,14vh,180px) 6vw; text-align:center; background:#070e1c;">
+    <div data-reveal>
+      <div class="statl" style="margin-bottom:16px;">A FluidMind × 23Blocks collaboration</div>
+      <h2 style="font-size:clamp(2.2rem,5vw,4rem); font-weight:600; letter-spacing:-0.03em; max-width:20ch; margin:0 auto; line-height:1.05;">Open-source infrastructure for the agent era.</h2>
+      <p style="margin-top:22px; font-size:clamp(1.05rem,1.6vw,1.3rem); color:rgba(214,232,248,0.62); max-width:56ch; margin-left:auto; margin-right:auto;">Free to use, MIT-licensed, made with ♥ in Boulder, Colorado — and shipped alongside the products we run on it every day.</p>
+      <div style="display:flex; gap:14px; justify-content:center; margin-top:40px; flex-wrap:wrap;">
+        <a href="https://ai-maestro.23blocks.com/" target="_blank" rel="noopener" style="padding:16px 34px; background:#a78bfa; color:#160f30; font-weight:600; border-radius:100px;">Visit AI Maestro ↗</a>
+        <a href="https://github.com/23blocks-OS/ai-maestro" target="_blank" rel="noopener" style="padding:16px 34px; border:1px solid rgba(167,139,250,0.4); color:#e5ddff; font-weight:500; border-radius:100px;">Star on GitHub ↗</a>
+        <a href="https://23blocks.com/home" target="_blank" rel="noopener" style="padding:16px 34px; border:1px solid rgba(140,200,230,0.4); color:#dff2ff; font-weight:500; border-radius:100px;">23blocks.com ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding:40px 5vw; background:#05080f; border-top:1px solid rgba(120,180,210,0.1);">
+    <a href="/" style="display:flex; align-items:center; gap:12px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:15px; opacity:0.6;"></a>
+    <div class="sig" style="display:flex; gap:24px; align-items:center; flex-wrap:wrap; font-size:13px; color:rgba(200,222,246,0.45);"><span>© 2026 Fluid Mind · AI Maestro © 23blocks (MIT)</span><a href="/terms/" style="color:inherit;">Terms</a><a href="/privacy/" style="color:inherit;">Privacy</a></div>
+  </footer>
+
+  <style>
+    .eyebrow { display:inline-flex; align-items:center; gap:14px; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#22d3ee; margin-bottom:22px; }
+    .eyebrow::before { content:''; width:28px; height:1.5px; background:currentColor; opacity:0.55; border-radius:2px; }
+    .badge23 { font-size:12px; font-weight:600; padding:7px 15px; border-radius:100px; background:rgba(167,139,250,0.16); color:#c4b5fd; border:1px solid rgba(167,139,250,0.35); }
+    .badge-oss { font-size:12px; font-weight:600; padding:7px 15px; border-radius:100px; background:rgba(34,211,238,0.12); color:#7fe9ff; border:1px solid rgba(34,211,238,0.3); }
+    .statv { font-size:clamp(2.2rem,3.6vw,3rem); font-weight:600; letter-spacing:-0.03em; color:#f4fbff; }
+    .statl { font-family:'Bricolage Grotesque',sans-serif; font-size:12px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(200,222,246,0.5); margin-top:6px; }
+
+    /* dashboard */
+    .dash { border-radius:16px; overflow:hidden; box-shadow:0 50px 120px -40px rgba(80,60,160,0.4); background:#0c0d14; border:1px solid #232430; }
+    .dash-top { display:flex; align-items:center; gap:12px; padding:13px 18px; background:#111220; border-bottom:1px solid #232430; }
+    .dash-ver { font-size:11px; color:#7c7f95; }
+    .dash-host { font-size:11px; color:#7c7f95; }
+    .mesh { display:flex; align-items:center; gap:5px; font-size:11px; color:#8a8da3; }
+    .mesh i { width:8px; height:8px; border-radius:50%; display:inline-block; }
+    .mesh .ok { background:#4ade80; } .mesh .warn { background:#fbbf24; }
+    .dash-body { display:grid; grid-template-columns:200px 1fr 240px; min-height:340px; }
+    .dash-side { background:#0e0f1a; border-right:1px solid #232430; padding:16px 12px; }
+    .side-h { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#61647c; margin-bottom:12px; }
+    .tree-g { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color:#cdd0e6; padding:7px 6px; }
+    .tdot { width:9px; height:9px; border-radius:50%; }
+    .tree-c { display:flex; align-items:center; gap:8px; font-size:12.5px; color:#9599b3; padding:6px 6px 6px 22px; border-radius:7px; }
+    .tree-c.active { background:#1b1c2e; color:#e9e6f5; }
+    .agtag { margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.04em; color:#7c7f95; background:#181927; border:1px solid #2a2b3d; border-radius:5px; padding:1px 6px; }
+    .cdot { width:6px; height:6px; border-radius:50%; background:#4ade80; }
+    .dash-term { background:#080911; display:flex; flex-direction:column; }
+    .term-tabs { display:flex; gap:6px; padding:10px 14px; border-bottom:1px solid #1b1c2a; }
+    .tab { font-size:11px; color:#6e7189; padding:4px 10px; border-radius:6px; }
+    .tab.active { background:#1b1c2e; color:#cdd0e6; }
+    .term-body { padding:16px 18px; font-size:12.5px; line-height:1.9; }
+    .tl { color:#c8cbe0; } .tl.dim { color:#63667e; }
+    .tp { color:#a78bfa; } .tg { color:#4ade80; } .tw { color:#22d3ee; }
+    .cursor { color:#a78bfa; animation:fm-blink 1.1s step-end infinite; }
+    .dash-rail { background:#0e0f1a; border-left:1px solid #232430; padding:14px; }
+    .rail-tabs { display:flex; gap:6px; margin-bottom:14px; }
+    .rtab { font-size:11px; color:#6e7189; padding:4px 10px; border-radius:6px; }
+    .rtab.active { background:#1b1c2e; color:#cdd0e6; }
+    .msg { background:#14152260; border:1px solid #262738; border-radius:11px; padding:13px; }
+    .msg-h { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .msg-from { font-size:12px; font-weight:600; color:#dcd0ff; }
+    .pri { font-size:9.5px; padding:2px 7px; border-radius:100px; }
+    .pri.high { background:rgba(251,146,60,0.16); color:#fdba74; }
+    .pri.urgent { background:rgba(248,113,113,0.16); color:#fca5a5; }
+    .pri.normal { background:rgba(148,163,184,0.16); color:#cbd5e1; }
+    .msg-t { font-size:12px; line-height:1.5; color:#aeb2cc; }
+    .msg-meta { font-size:10px; color:#61647c; margin-top:9px; }
+    .msg-meta .typ { color:#8a8da3; }
+    .graphmini { position:relative; height:120px; margin-top:14px; background:#0a0b14; border:1px solid #1e1f2e; border-radius:11px; }
+    .gn { position:absolute; width:9px; height:9px; border-radius:50%; background:#a78bfa; box-shadow:0 0 10px rgba(167,139,250,0.7); transform:translate(-50%,-50%); }
+    .gedge { position:absolute; inset:0; width:100%; height:100%; }
+    .gedge line { stroke:rgba(167,139,250,0.35); stroke-width:0.6; }
+    .graphlbl { position:absolute; bottom:8px; left:10px; font-size:9.5px; color:#61647c; }
+
+    .feat2 { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:center; margin-bottom:clamp(48px,7vw,90px); }
+    .feat2.rev > div:first-child { order:2; }
+    .fnum { font-size:13px; color:#a78bfa; letter-spacing:0.1em; margin-bottom:14px; }
+    .feat2 h3 { font-size:clamp(1.5rem,2.6vw,2.1rem); font-weight:600; letter-spacing:-0.02em; line-height:1.08; }
+    .feat2 p { margin-top:16px; font-size:clamp(1rem,1.4vw,1.12rem); line-height:1.65; color:rgba(214,232,248,0.66); }
+    .chips { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+    .chip { font-size:0.85rem; font-weight:500; color:#c4b5fd; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.3); padding:7px 14px; border-radius:100px; }
+    .fviz { background:linear-gradient(150deg,#12131f,#0c0d16); border:1px solid rgba(120,120,180,0.18); border-radius:18px; padding:26px; min-height:220px; display:flex; align-items:center; justify-content:center; }
+
+    .mesh-diagram { position:relative; width:100%; max-width:320px; height:150px; }
+    .mesh-diagram .node { position:absolute; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#cdd0e6; background:#1a1b2b; border:1px solid #2e2f44; border-radius:9px; padding:9px 13px; }
+    .mesh-diagram .node:nth-child(1){ left:0; top:12px; } .mesh-diagram .node:nth-child(2){ right:0; top:12px; } .mesh-diagram .node:nth-child(3){ left:50%; transform:translateX(-50%); bottom:6px; }
+    .mesh-diagram svg { position:absolute; inset:0; width:100%; height:100%; }
+    .mesh-diagram line { stroke:rgba(167,139,250,0.45); stroke-width:1; stroke-dasharray:4 4; }
+
+    .memlist { width:100%; display:flex; flex-direction:column; gap:11px; }
+    .mem { display:flex; align-items:center; gap:10px; font-size:12.5px; color:#b9bcd6; }
+    .mem.dim { color:#63667e; }
+    .mdot { width:7px; height:7px; border-radius:50%; background:#4ade80; }
+
+    .graphbig { position:relative; width:100%; max-width:320px; height:180px; }
+    .graphbig svg { position:absolute; inset:0; width:100%; height:100%; }
+    .graphbig line { stroke:rgba(120,140,220,0.4); stroke-width:0.6; }
+    .gn2 { position:absolute; width:13px; height:13px; border-radius:50%; background:#a78bfa; transform:translate(-50%,-50%); box-shadow:0 0 12px rgba(167,139,250,0.6); }
+    .gn2.fn { background:#60a5fa; box-shadow:0 0 12px rgba(96,165,250,0.6); } .gn2.cp { background:#22d3ee; box-shadow:0 0 12px rgba(34,211,238,0.6); }
+    .glegend { position:absolute; bottom:-6px; left:0; display:flex; gap:14px; font-size:10px; color:#8a8da3; }
+    .glegend i { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+
+    .inbox { width:100%; display:flex; flex-direction:column; gap:10px; }
+    .ib { background:#14152260; border:1px solid #262738; border-radius:11px; padding:12px 14px; }
+    .ib.dim { opacity:0.55; }
+    .ib-f { font-family:'IBM Plex Mono',monospace; font-size:11px; color:#9599b3; }
+    .ib .pri { float:right; }
+    .ib-t { font-size:12.5px; color:#cdd0e6; margin-top:7px; }
+
+    .acard { background:linear-gradient(150deg,#12131f,#0c0d16); border:1px solid rgba(120,120,180,0.16); border-radius:16px; padding:24px; transition:border-color 0.3s, transform 0.3s; }
+    .acard:hover { border-color:rgba(167,139,250,0.4); transform:translateY(-3px); }
+    .acard h4 { font-size:1.1rem; font-weight:600; margin-bottom:9px; }
+    .acard p { font-size:0.92rem; line-height:1.6; color:rgba(214,232,248,0.6); }
+    .tech { font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:#c4b5fd; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.22); padding:8px 14px; border-radius:8px; }
+
+    @media (max-width:860px) {
+      .dash-body { grid-template-columns:1fr; }
+      .dash-side, .dash-rail { display:none; }
+      .feat2 { grid-template-columns:1fr; gap:28px; }
+      .feat2.rev > div:first-child { order:0; }
+    }
+  </style>
+</div>
+
+<script src="/js/fm.js"></script>
+<script>
+FM.onReady(function () {
+  requestAnimationFrame(function () {
+    FM.startCanvas('cvSwarm', FM.swarm({
+      count: 64,
+      labels: ['claude', 'aider', 'cursor', 'codex', 'copilot'],
+      layout: 'row',
+      ptLine: '167,139,250', ptLineA: 0.28,
+      hubLine: '34,211,238', hubLineA: 0.32,
+      dotColor: 'rgba(150,170,255,0.7)',
+      glow: '167,139,250', glowA: 0.5,
+      hubDot: '#d8ccff',
+      labelColor: 'rgba(216,204,255,0.7)',
+      fontSize: 11.5
+    }));
+    FM.initReveals({ stagger: 0.07, threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    FM.initNav({ threshold: 30, bg: 'rgba(10,10,26,0.75)', border: '1px solid rgba(120,120,180,0.12)' });
+  });
+});
+</script>
+</body>
+</html>

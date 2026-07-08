@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products — FluidMind</title>
+<meta name="description" content="Everything the FluidMind lab has shipped — agent-native products across legal, automotive, recruiting, compliance and consumer, plus the open agent infrastructure underneath them.">
+<meta property="og:title" content="Products — FluidMind">
+<meta property="og:description" content="Everything the FluidMind lab has shipped, plus the open agent infrastructure underneath.">
+<meta property="og:url" content="https://fluidmind.ai/products/">
+<link rel="icon" type="image/png" href="/png/f%20teal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#05080f; color:#eaf3fb; font-family:'Outfit',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#22d3ee; color:#04121a; }
+  a { color:#22d3ee; text-decoration:none; }
+  a:hover { color:#67e8f9; }
+  .sig { font-family:'Bricolage Grotesque','Outfit',sans-serif; }
+  .tt { font-family:'IBM Plex Mono',ui-monospace,monospace; }
+  @keyframes fm-rise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;">
+
+  <nav id="nav" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw; transition:background 0.4s, padding 0.4s;">
+    <a href="/" style="display:flex; align-items:center; gap:10px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:16px; opacity:0.9;"></a>
+    <div class="sig" style="display:flex; gap:28px; align-items:center; font-size:14px; font-weight:500;">
+      <a href="/#lab" style="color:rgba(230,244,255,0.66);">Lab</a>
+      <a href="/#stack" style="color:rgba(230,244,255,0.66);">Stack</a>
+      <a href="mailto:hello@fluidmind.ai" style="display:inline-flex; align-items:center; padding:8px 18px; border:1px solid rgba(34,211,238,0.5); border-radius:100px; color:#22d3ee;">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; padding:clamp(120px,20vh,210px) 5vw clamp(50px,7vh,80px); overflow:hidden; background:radial-gradient(120% 90% at 50% 0%, #0a1526 0%, #05080f 60%);">
+    <canvas id="cvFluid" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.5;"></canvas>
+    <div style="position:absolute; inset:0; background:radial-gradient(80% 80% at 50% 30%, transparent 40%, rgba(5,8,15,0.7) 100%); pointer-events:none;"></div>
+    <div style="position:relative; z-index:2; max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">The portfolio</div>
+      <h1 data-reveal style="font-size:clamp(2.6rem,6.2vw,5rem); font-weight:600; line-height:0.98; letter-spacing:-0.035em; max-width:18ch;">Everything the lab has shipped.</h1>
+      <p data-reveal style="margin-top:26px; font-size:clamp(1.1rem,1.7vw,1.4rem); line-height:1.55; color:rgba(214,232,248,0.7); max-width:56ch;">Agent-native products across legal, automotive, recruiting, compliance and consumer — plus the open infrastructure underneath them.</p>
+    </div>
+  </header>
+
+  <!-- PRODUCTS -->
+  <section style="padding:clamp(40px,6vh,70px) 5vw clamp(30px,4vh,50px); background:#05080f;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">Products in the wild</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px; margin-top:40px;">
+
+        <a data-reveal class="prod" href="https://notonote.ai/" target="_blank" rel="noopener">
+          <div class="prod-head"><span class="pm" style="background:#fff;"><img src="/png/notonote.png" alt=""></span><span class="tag tag-live">Live</span></div>
+          <h3>NotoNote</h3><div class="pcat sig">Productivity · Voice</div>
+          <p>AI notes and dictation that turn messy thoughts and meetings into clean summaries and action items.</p>
+          <span class="plink">notonote.ai ↗</span>
+        </a>
+
+        <a data-reveal class="prod" href="/work/absolute-erp/">
+          <div class="prod-head"><span class="pm" style="background:#26251f; padding:7px;"><img src="/png/absolute.png" alt=""></span><span class="tag tag-priv">Live · Private</span></div>
+          <h3>AI Dealership ERP</h3><div class="pcat sig">Automotive · Agent-first</div>
+          <p>Run a performance-car dealership by chatting with Senna — inventory, sales, recon and reports on one canvas.</p>
+          <span class="plink">Read the case study →</span>
+        </a>
+
+        <a data-reveal class="prod" href="https://www.winepro.ai/" target="_blank" rel="noopener">
+          <div class="prod-head"><span class="pm" style="background:linear-gradient(150deg,#6d5cf0,#4c39c9);"><img src="/png/winepro-mark.svg" alt="" style="width:22px;height:22px;"></span><span class="tag tag-live">Live</span></div>
+          <h3>WinePro</h3><div class="pcat sig">Consumer</div>
+          <p>Your pocket sommelier — scan any label or list, ask anything, get recommendations tuned to your taste.</p>
+          <span class="plink">winepro.ai ↗</span>
+        </a>
+
+        <a data-reveal class="prod" href="mailto:hello@fluidmind.ai">
+          <div class="prod-head"><span class="pm" style="background:transparent; padding:0;"><img src="/png/avogado.png" alt="" style="width:38px;height:38px;object-fit:contain;"></span><span class="tag tag-live">Live</span></div>
+          <h3>Avogado</h3><div class="pcat sig">Legal</div>
+          <p>A legal workspace where one agent per matter researches, drafts and organizes over a live event stream.</p>
+          <span class="plink">Learn more →</span>
+        </a>
+
+        <div data-reveal class="prod">
+          <div class="prod-head"><span class="tag tag-priv">Live · Private</span></div>
+          <h3>Agent Noto</h3><div class="pcat sig">General-purpose agent</div>
+          <p>A do-anything AI agent — grounded answers over your own knowledge, task execution and integrations. We run ours for recruiting, but it's built for anything.</p>
+        </div>
+
+        <div data-reveal class="prod">
+          <div class="prod-head"><span class="tag tag-soon">Private · Soon</span></div>
+          <h3>LawyerNet</h3><div class="pcat sig">Legal · Recruiting</div>
+          <p>AI search and workflow for legal recruiting — find the right lawyers, then run outreach and tracking in one place.</p>
+        </div>
+
+        <div data-reveal class="prod">
+          <div class="prod-head"><span class="tag tag-live">Live</span></div>
+          <h3>Mooncheck</h3><div class="pcat sig">Crypto · Compliance</div>
+          <p>AI-driven compliance — reviews whitepapers and docs against regulatory requirements and flags the gaps.</p>
+        </div>
+
+        <div data-reveal class="prod">
+          <div class="prod-head"><span class="tag tag-priv">Private</span></div>
+          <h3>Climate Rapid Response</h3><div class="pcat sig">Climate · Research</div>
+          <p>Rapid intake, research and memo drafting — decision-ready climate briefs, fast.</p>
+        </div>
+
+        <div data-reveal class="prod">
+          <div class="prod-head"><span class="tag tag-soon">Coming soon</span></div>
+          <h3>WhiskyPro</h3><div class="pcat sig">Consumer</div>
+          <p>Discover and compare whiskies with tasting insights and personalized recommendations.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section style="padding:clamp(50px,7vh,90px) 5vw clamp(70px,10vh,120px); background:linear-gradient(180deg,#05080f,#070e1c);">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal class="eyebrow">The agent stack</div>
+      <p data-reveal style="margin-top:6px; margin-bottom:40px; font-size:clamp(1rem,1.5vw,1.2rem); color:rgba(214,232,248,0.6); max-width:56ch;">The infrastructure we build our products on — and increasingly share as open source.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px;">
+
+        <a data-reveal class="prod stack" href="/products/ai-maestro/">
+          <div class="prod-head"><span class="tag tag-oss">Open source · 23Blocks</span></div>
+          <h3>AI Maestro</h3><div class="pcat sig">Agent orchestration</div>
+          <p>Orchestrate every terminal AI agent from one dashboard — memory, code-graph understanding, messaging, peer mesh.</p>
+          <span class="plink">View showcase →</span>
+        </a>
+
+        <a data-reveal class="prod stack" href="/products/noto-lark/">
+          <div class="prod-head"><span class="tag tag-oss">Open source</span></div>
+          <h3>Noto Lark</h3><div class="pcat sig">Knowledge agent</div>
+          <p>Self-hosted knowledge agent for Lark/Feishu — grounded, cited answers over your own wiki, docs and chats.</p>
+          <span class="plink">View showcase →</span>
+        </a>
+
+        <div data-reveal class="prod stack">
+          <div class="prod-head"><span class="tag tag-live">Core runtime</span></div>
+          <h3>FluidMind LLM</h3><div class="pcat sig">Local model runtime</div>
+          <p>A drop-in replacement for Ollama — serve and route across open models behind one fast, OpenAI-compatible endpoint.</p>
+        </div>
+
+        <div data-reveal class="prod stack">
+          <div class="prod-head"><span class="tag tag-live">Multi-agent chat</span></div>
+          <h3>NotoLink</h3><div class="pcat sig">Agent teamwork</div>
+          <p>Run your AI agent teams in a Slack-like workspace — agents @mention each other and report back to you.</p>
+        </div>
+
+        <a data-reveal class="prod stack" href="https://agentids.org/" target="_blank" rel="noopener">
+          <div class="prod-head"><span class="tag tag-oss">Open protocol</span></div>
+          <h3>AID — Agent Identity</h3><div class="pcat sig">Identity &amp; access</div>
+          <p>An open protocol giving every agent a cryptographic identity and scoped, auditable access. No shared keys.</p>
+          <span class="plink">agentids.org ↗</span>
+        </a>
+
+        <div data-reveal class="prod stack cta">
+          <h3>Building agent systems?</h3>
+          <p>We ship this stack every day and love comparing notes.</p>
+          <a class="plink" href="mailto:hello@fluidmind.ai">Talk to the lab →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding:40px 5vw; background:#070e1c; border-top:1px solid rgba(120,180,210,0.1);">
+    <a href="/" style="display:flex; align-items:center; gap:12px;"><img src="/png/logo%20white.png" alt="Fluid Mind" style="height:15px; opacity:0.6;"></a>
+    <div class="sig" style="display:flex; gap:24px; align-items:center; flex-wrap:wrap; font-size:13px; color:rgba(200,222,246,0.45);"><span>© 2026 Fluid Mind — Where AI flows</span><a href="/terms/" style="color:inherit;">Terms</a><a href="/privacy/" style="color:inherit;">Privacy</a></div>
+  </footer>
+
+  <style>
+    .eyebrow { display:inline-flex; align-items:center; gap:14px; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#22d3ee; }
+    .eyebrow::before { content:''; width:28px; height:1.5px; background:currentColor; opacity:0.55; border-radius:2px; }
+    .prod { display:flex; flex-direction:column; background:linear-gradient(150deg,#0b1524,#0a1120); border:1px solid rgba(120,180,210,0.13); border-radius:18px; padding:26px; transition:border-color 0.3s, transform 0.3s; color:inherit; }
+    .prod:hover { border-color:rgba(34,211,238,0.4); transform:translateY(-4px); }
+    .prod.stack { background:linear-gradient(150deg,#0a1420,#080f1a); }
+    .prod-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px; min-height:44px; }
+    .pm { width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; }
+    .pm img { width:44px; height:44px; object-fit:cover; }
+    .prod h3 { font-size:1.35rem; font-weight:600; letter-spacing:-0.02em; }
+    .pcat { font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(200,222,246,0.5); margin-top:6px; }
+    .prod p { font-size:0.95rem; line-height:1.6; color:rgba(214,232,248,0.62); margin-top:14px; flex:1; }
+    .plink { display:inline-block; margin-top:18px; font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:0.95rem; color:#22d3ee; }
+    .tag { font-family:'Bricolage Grotesque',sans-serif; font-size:10.5px; font-weight:500; letter-spacing:0.04em; padding:5px 11px; border-radius:100px; white-space:nowrap; }
+    .tag-live { background:rgba(34,211,238,0.14); color:#7fe9ff; }
+    .tag-oss { background:rgba(124,132,255,0.14); color:#a9b0ff; }
+    .tag-soon { background:rgba(124,132,255,0.12); color:#a9b0ff; }
+    .tag-priv { background:rgba(255,255,255,0.06); color:rgba(230,244,255,0.6); border:1px solid rgba(230,244,255,0.14); }
+    .prod.cta { background:linear-gradient(150deg,rgba(34,211,238,0.1),rgba(10,17,32,0.9)); border-color:rgba(34,211,238,0.3); justify-content:center; }
+    .prod.cta h3 { font-size:1.2rem; }
+  </style>
+</div>
+
+<script src="/js/fm.js"></script>
+<script>
+FM.onReady(function () {
+  requestAnimationFrame(function () {
+    FM.startCanvas('cvFluid', FM.fluid({ count: 6, alpha: 0.36 }));
+    FM.initReveals({ stagger: 0.05, threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    FM.initNav({ threshold: 30, bg: 'rgba(6,13,26,0.75)' });
+  });
+});
+</script>
+</body>
+</html>
