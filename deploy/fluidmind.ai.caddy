@@ -1,0 +1,48 @@
+# fluidmind.ai — static site, served from /var/www/fluidmind.ai.
+# Lives in /etc/caddy/sites-enabled/ on the shared droplet; pulled in by the
+# main Caddyfile's `import sites-enabled/*.caddy`. Self-contained — adding or
+# removing this file never touches any other site on the box. Caddy
+# auto-provisions and renews the Let's Encrypt cert once DNS points here.
+
+(fluidmind-site) {
+	root * /var/www/fluidmind.ai
+	encode zstd gzip
+
+	# Directory-style URLs (/privacy/, /products/ai-maestro/) + a few top-level
+	# .html files (projects.html). Serve the exact file, then dir index, then .html.
+	try_files {path} {path}/index.html {path}.html
+	file_server
+
+	handle_errors {
+		@404 expression `{http.error.status_code} == 404`
+		handle @404 {
+			rewrite * /404.html
+			file_server
+		}
+	}
+
+	# Images a week; everything else short (site isn't content-hashed, so HTML/JS
+	# redeploys show up fast). Mutually-exclusive matchers to avoid header
+	# precedence ambiguity between a catch-all and a specific rule.
+	@img path /png/*
+	header @img Cache-Control "public, max-age=604800"
+	@notimg not path /png/*
+	header @notimg Cache-Control "public, max-age=300"
+
+	header X-Content-Type-Options "nosniff"
+}
+
+# Apex is canonical (repo CNAME + og:url both say fluidmind.ai). www redirects.
+www.fluidmind.ai {
+	redir https://fluidmind.ai{uri} permanent
+}
+
+fluidmind.ai {
+	import fluidmind-site
+	header Strict-Transport-Security "max-age=31536000"
+}
+
+# Pre-cutover staging over real HTTPS, without touching fluidmind.ai DNS.
+fluidmind.161.35.12.67.nip.io {
+	import fluidmind-site
+}
