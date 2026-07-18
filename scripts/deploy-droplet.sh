@@ -20,7 +20,7 @@ cd "$ROOT"
 echo "▸ Syncing static site → ${HOST}:${DEST}"
 rsync -az --delete ${DRY:+--dry-run -i} \
   --exclude='.git' --exclude='.gitignore' --exclude='CNAME' \
-  --exclude='deploy' --exclude='scripts' --exclude='README.md' \
+  --exclude='deploy' --exclude='scripts' --exclude='*.md' \
   -e "ssh -i '$KEY' -o BatchMode=yes" \
   ./ "${HOST}:${DEST}"
 
